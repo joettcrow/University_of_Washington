@@ -44,9 +44,12 @@ public class Consultant {
     }
 
     /**
-     * Equals method for consultants
-     * @param o the other consultant to compare
-     * @return the boolean truth value if the values are the same
+     * Overrides Object.equals( Object ).
+     * Determines whether this Consultant object is equal to a given object.
+     * The two objects are equal if they are both concrete Consultant objects,
+     * and the corresponding names are equal.
+     * @param o The given object.
+     * @return True if the this object is equal to the given object, false otherwise.
      */
     @Override
     public boolean equals(Object o) {

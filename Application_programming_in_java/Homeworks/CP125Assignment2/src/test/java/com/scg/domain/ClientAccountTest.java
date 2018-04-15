@@ -78,6 +78,52 @@ public class ClientAccountTest {
     }
 
     @Test
-    public void hashCodeTest() {
+    public void equalsDiffTest(){
+        PersonalName contact2 = new PersonalName(
+                "Last2",
+                "First2",
+                "Middle2"
+        );
+        Address address2 = new Address(
+                "1234 DiffStreetNum",
+                "Diff City",
+                StateCode.TX,
+                "Diff 1234"
+        );
+        ClientAccount acct2 = new ClientAccount(
+                "name2",
+                contact2,
+                address2);
+        assert !acct1.equals(acct2);
+    }
+
+    @Test
+    public void hashCodeEqualTest() {
+        ClientAccount acct2 = new ClientAccount(
+                name,
+                contact,
+                address
+        );
+        assertEquals(acct1.hashCode(), acct2.hashCode());
+    }
+
+    @Test
+    public void hashCodeUnequalTest(){
+        PersonalName contact2 = new PersonalName(
+                "Last2",
+                "First2",
+                "Middle2"
+        );
+        Address address2 = new Address(
+                "1234 DiffStreetNum",
+                "Diff City",
+                StateCode.TX,
+                "Diff 1234"
+        );
+        ClientAccount acct2 = new ClientAccount(
+                "name2",
+                contact2,
+                address2);
+        assertNotEquals(acct1.hashCode(),acct2.hashCode());
     }
 }

@@ -13,7 +13,6 @@ import java.util.Objects;
  * The account is billable
  * @author jcrowley
  */
-
 public class ClientAccount implements Account {
     private final String name;
     private PersonalName contact;
@@ -21,47 +20,47 @@ public class ClientAccount implements Account {
 
 
     /**
-     * Getter for the Client Account Name
-     * @return the client account name as a string
+     * Returns the name of the account.
+     * @return The name of the account.
      */
     public String getName() {
         return name;
     }
 
     /**
-     * Getter for the client account contact
-     * @return the client account contact as a personal name
+     * Returns the name of the principal contact.
+     * @return the name of the principal contact
      */
     public PersonalName getContact() {
         return contact;
     }
 
     /**
-     * Setter for the client account contact
-     * @param contact as a personal name to set
+     * Sets the name of the principal contact.
+     * @param contact The new name of the principal contact.
      */
     public void setContact(PersonalName contact) {
         this.contact = contact;
     }
 
     /**
-     * Getter for the address of the Client Account
-     * @return the address as an Address
+     * Returns the address of the account.
+     * @return the name of address of the account
      */
     public Address getAddress() {
         return address;
     }
 
     /**
-     * Setter for the Address of the client account
-     * @param address as an Address
+     * Sets the address of the account.
+     * @param address The new address of the account
      */
     public void setAddress(Address address) {
         this.address = address;
     }
 
     /**
-     * Constructor for a client account
+     * Constructor; sets the name, principal contact and address.
      * @param name the name of the account as a string
      * @param contact the contact for the account as a PersonalName
      * @param address the address for the account as an Address
@@ -73,7 +72,7 @@ public class ClientAccount implements Account {
     }
 
     /**
-     * Boolean method denoting if the value is billiable
+     * Returns true, indicating that the account is billable.
      * @return true
      */
     public boolean isBillable(){
