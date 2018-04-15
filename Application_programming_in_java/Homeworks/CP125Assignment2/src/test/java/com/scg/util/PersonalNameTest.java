@@ -70,4 +70,40 @@ public class PersonalNameTest {
         String nameString = "Crowley, Joseph Thomas";
         assertEquals(nameString, name3.toString());
     }
+
+    @Test
+    public void nameEqualsTest(){
+        PersonalName nameTest = new PersonalName(
+                lastName,
+                firstName,
+                middleName
+        );
+        assertEquals(name3,nameTest);
+    }
+
+    @Test
+    public void nameSameEqualsTest(){
+        PersonalName nameTest = name3;
+        assertEquals(name3,nameTest);
+    }
+
+    @Test
+    public void nameNotEqualsTest(){
+        assertNotEquals(name2,name3);
+    }
+
+    @Test
+    public void nameHashEqualsTest(){
+        PersonalName nameTest = new PersonalName(
+                lastName,
+                firstName,
+                middleName
+        );
+        assertEquals(name3.hashCode(),nameTest.hashCode());
+    }
+
+    @Test
+    public void nameHashNotEqualsTest(){
+        assertNotEquals(name2.hashCode(),name3.hashCode());
+    }
 }

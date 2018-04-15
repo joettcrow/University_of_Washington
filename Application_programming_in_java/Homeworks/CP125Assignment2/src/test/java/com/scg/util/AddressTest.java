@@ -4,6 +4,7 @@ package com.scg.util;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
 /**
  * @author jcrowley
@@ -47,6 +48,52 @@ public class AddressTest {
                 System.lineSeparator() +
                 "City Name, WA 98125";
         assertEquals(addressString, address1.toString());
+    }
+
+    @Test
+    public void addressEqualTest(){
+        Address address2 = new Address(
+                streetNum1,
+                city1,
+                state1,
+                postCode1);
+        assert address1.equals(address2);
+    }
+
+    @Test
+    public void addressSameEqualsTest(){
+        Address address2 = address1;
+        assert address1.equals(address2);
+    }
+
+    @Test
+    public void addressNotEqualTest(){
+        Address address2 = new Address(
+                streetNum1,
+                city1,
+                StateCode.TX,
+                postCode1);
+        assert !address1.equals(address2);
+    }
+
+    @Test
+    public void hashCodeEqualsTest(){
+        Address address2 = new Address(
+                streetNum1,
+                city1,
+                state1,
+                postCode1);
+        assertEquals(address1.hashCode(),address2.hashCode());
+    }
+
+    @Test
+    public void hashCodeNotEqualsTest(){
+        Address address2 = new Address(
+                streetNum1,
+                city1,
+                StateCode.TX,
+                postCode1);
+        assertNotEquals(address1.hashCode(),address2.hashCode());
     }
 
 }

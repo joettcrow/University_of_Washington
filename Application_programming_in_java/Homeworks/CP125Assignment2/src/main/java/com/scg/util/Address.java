@@ -1,5 +1,7 @@
 package com.scg.util;
 
+import java.util.Objects;
+
 /**
  * This immutable class encapsulates an address. Encapsulated properties are:
  * Street address
@@ -80,5 +82,33 @@ public class Address {
         String str;
         str = String.format(streetNum + System.lineSeparator() + "%s, %s %s",city,state, postalCode);
         return str;
+    }
+
+    /**
+     * Determines whether this object is equal to a given object.
+     * The two objects are equal if they are both concrete Address objects,
+     * and all corresponding properties are equal.
+     * @param o The given object
+     * @return True if the this object is equal to the given object, false otherwise.
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Address address = (Address) o;
+        return Objects.equals(streetNum, address.streetNum) &&
+                Objects.equals(city, address.city) &&
+                state == address.state &&
+                Objects.equals(postalCode, address.postalCode);
+    }
+
+    /**
+     * Overrides Object.hashCode(); required because equals is overridden.
+     * @return The hash code for this object.
+     */
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(streetNum, city, state, postalCode);
     }
 }

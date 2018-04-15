@@ -1,5 +1,7 @@
 package com.scg.util;
 
+import java.util.Objects;
+
 /**
  * This class encapsulates the first, middle and last names of a person.
  * @author jcrowley
@@ -107,5 +109,21 @@ public class PersonalName {
         }
 
         return str;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        PersonalName that = (PersonalName) o;
+        return Objects.equals(firstName, that.firstName) &&
+                Objects.equals(lastName, that.lastName) &&
+                Objects.equals(middleName, that.middleName);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(firstName, lastName, middleName);
     }
 }
