@@ -2,6 +2,8 @@ package com.scg.domain;
 
 import com.scg.util.PersonalName;
 
+import java.util.Objects;
+
 /**
  * This immutable class encapsulates the name of a consultant
  * @author jcrowley
@@ -39,5 +41,30 @@ public class Consultant {
     public String toString() {
         String str = name.toString();
         return str;
+    }
+
+    /**
+     * Equals method for consultants
+     * @param o the other consultant to compare
+     * @return the boolean truth value if the values are the same
+     */
+    @Override
+    public boolean equals(Object o) {
+        boolean eq = false;
+        if (this == o) eq = true;
+        if (o == null || getClass() != o.getClass()) eq = false;
+        Consultant that = (Consultant) o;
+        eq = Objects.equals(name, that.name);
+        return eq;
+    }
+
+    /**
+     * Hashcode method for a consultant
+     * @return the hash code of the consultant
+     */
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(name);
     }
 }
