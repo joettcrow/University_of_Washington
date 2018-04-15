@@ -1,0 +1,5 @@
+com/scg/domain/ConsultantTest.class
+com/scg/domain/SkillTest.class
+com/scg/util/PersonalNameTest.class
+com/scg/domain/NonBillableAccountTest.class
+com/scg/util/AddressTest.class

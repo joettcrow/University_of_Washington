@@ -1,0 +1,7 @@
+com/scg/domain/Consultant.class
+com/scg/domain/Skill.class
+com/scg/domain/NonBillableAccount.class
+com/scg/util/Address.class
+com/scg/util/PersonalName.class
+com/scg/util/StateCode.class
+com/scg/domain/Account.class

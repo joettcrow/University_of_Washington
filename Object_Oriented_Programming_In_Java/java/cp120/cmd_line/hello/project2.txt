@@ -1,0 +1,8 @@
+______ class GoodbyeCruelWorld
+{
+    public static void ____( String[] args )
+    {
+        System.out._______( "Goodbye cruel world." );
+    }
+}
+

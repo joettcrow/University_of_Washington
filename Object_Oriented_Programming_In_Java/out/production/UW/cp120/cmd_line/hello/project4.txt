@@ -1,0 +1,8 @@
+public _____ GoDogGo
+_
+    ______ ______ void main( String__ ______ )
+    _
+        System.out.println( "Go dog go." )_
+    _
+_
+

@@ -1,0 +1,8 @@
+public _____ _______________
+{
+    public ______ ____ main( ________ args )
+    {
+        ______.___.println( "Good night Gracie." )_
+    }
+}
+
