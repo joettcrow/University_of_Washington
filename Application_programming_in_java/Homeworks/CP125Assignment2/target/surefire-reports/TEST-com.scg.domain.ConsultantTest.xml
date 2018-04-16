@@ -17,7 +17,7 @@
     <property name="user.country" value="US"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_102.jdk/Contents/Home/jre/lib"/>
-    <property name="sun.java.command" value="/Users/jcrowley/University_of_Washington/Application_programming_in_java/Homeworks/CP125Assignment2/target/surefire/surefirebooter3426733464500670327.jar /Users/jcrowley/University_of_Washington/Application_programming_in_java/Homeworks/CP125Assignment2/target/surefire 2018-04-15T21-56-15_830-jvmRun1 surefire2843609807258032655tmp surefire_08282702070339644199tmp"/>
+    <property name="sun.java.command" value="/Users/jcrowley/University_of_Washington/Application_programming_in_java/Homeworks/CP125Assignment2/target/surefire/surefirebooter3348875714862475217.jar /Users/jcrowley/University_of_Washington/Application_programming_in_java/Homeworks/CP125Assignment2/target/surefire 2018-04-15T22-13-08_591-jvmRun1 surefire4800000070181144418tmp surefire_06569592621757956778tmp"/>
     <property name="surefire.test.class.path" value="/Users/jcrowley/University_of_Washington/Application_programming_in_java/Homeworks/CP125Assignment2/target/test-classes:/Users/jcrowley/University_of_Washington/Application_programming_in_java/Homeworks/CP125Assignment2/target/classes:/Users/jcrowley/.m2/repository/junit/junit/4.12/junit-4.12.jar:/Users/jcrowley/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/Users/jcrowley/.m2/repository/org/slf4j/slf4j-api/1.7.22/slf4j-api-1.7.22.jar:/Users/jcrowley/.m2/repository/org/slf4j/slf4j-jdk14/1.7.22/slf4j-jdk14-1.7.22.jar:"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="/Users/jcrowley"/>
@@ -30,7 +30,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.awt.graphicsenv" value="sun.awt.CGraphicsEnvironment"/>
-    <property name="surefire.real.class.path" value="/Users/jcrowley/University_of_Washington/Application_programming_in_java/Homeworks/CP125Assignment2/target/surefire/surefirebooter3426733464500670327.jar"/>
+    <property name="surefire.real.class.path" value="/Users/jcrowley/University_of_Washington/Application_programming_in_java/Homeworks/CP125Assignment2/target/surefire/surefirebooter3348875714862475217.jar"/>
     <property name="sun.boot.class.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_102.jdk/Contents/Home/jre/lib/resources.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_102.jdk/Contents/Home/jre/lib/rt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_102.jdk/Contents/Home/jre/lib/sunrsasign.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_102.jdk/Contents/Home/jre/lib/jsse.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_102.jdk/Contents/Home/jre/lib/jce.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_102.jdk/Contents/Home/jre/lib/charsets.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_102.jdk/Contents/Home/jre/lib/jfr.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_102.jdk/Contents/Home/jre/classes"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="1.8.0_102-b14"/>
@@ -59,7 +59,7 @@
     <property name="java.class.version" value="52.0"/>
   </properties>
   <testcase name="makeInvalidConsultantTest" classname="com.scg.domain.ConsultantTest" time="0"/>
-  <testcase name="consultantHashNotEqualstest" classname="com.scg.domain.ConsultantTest" time="0"/>
+  <testcase name="consultantHashNotEqualstest" classname="com.scg.domain.ConsultantTest" time="0.001"/>
   <testcase name="makeValidConsutantTest" classname="com.scg.domain.ConsultantTest" time="0"/>
   <testcase name="consultantSameEqualsTest" classname="com.scg.domain.ConsultantTest" time="0"/>
   <testcase name="consultantHashEqualstest" classname="com.scg.domain.ConsultantTest" time="0"/>
