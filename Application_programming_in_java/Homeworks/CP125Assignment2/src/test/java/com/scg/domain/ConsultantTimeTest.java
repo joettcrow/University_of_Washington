@@ -98,7 +98,17 @@ public class ConsultantTimeTest {
 
     @Test
     public void isBillableTest() {
-        assertEquals(account.isBillable(),consultantTime.isBillable());
+        assert consultantTime.isBillable();
+    }
+
+    @Test
+    public void isNotBillableTest() {
+        ConsultantTime consultantTime2 = new ConsultantTime(
+                date,
+                account,
+                Skill.UNKNOWN_SKILL,
+                hours);
+        assert !consultantTime2.isBillable();
     }
 
     @Test

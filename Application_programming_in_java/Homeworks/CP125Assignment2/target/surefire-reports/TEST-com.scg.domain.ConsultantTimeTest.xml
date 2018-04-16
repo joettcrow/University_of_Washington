@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.scg.domain.ConsultantTest" time="0.001" tests="8" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.scg.domain.ConsultantTimeTest" time="0.008" tests="15" errors="0" skipped="0" failures="0">
   <properties>
     <property name="gopherProxySet" value="false"/>
     <property name="awt.toolkit" value="sun.lwawt.macosx.LWCToolkit"/>
@@ -58,12 +58,19 @@
     <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
     <property name="java.class.version" value="52.0"/>
   </properties>
-  <testcase name="makeInvalidConsultantTest" classname="com.scg.domain.ConsultantTest" time="0"/>
-  <testcase name="consultantHashNotEqualstest" classname="com.scg.domain.ConsultantTest" time="0"/>
-  <testcase name="makeValidConsutantTest" classname="com.scg.domain.ConsultantTest" time="0"/>
-  <testcase name="consultantSameEqualsTest" classname="com.scg.domain.ConsultantTest" time="0"/>
-  <testcase name="consultantHashEqualstest" classname="com.scg.domain.ConsultantTest" time="0"/>
-  <testcase name="consutantToStringTest" classname="com.scg.domain.ConsultantTest" time="0"/>
-  <testcase name="consultantNotEqualsTest" classname="com.scg.domain.ConsultantTest" time="0"/>
-  <testcase name="consultantEqualsTest" classname="com.scg.domain.ConsultantTest" time="0"/>
+  <testcase name="setHoursTest" classname="com.scg.domain.ConsultantTimeTest" time="0"/>
+  <testcase name="setAccountTest" classname="com.scg.domain.ConsultantTimeTest" time="0"/>
+  <testcase name="invalidHourTest" classname="com.scg.domain.ConsultantTimeTest" time="0"/>
+  <testcase name="isBillableTest" classname="com.scg.domain.ConsultantTimeTest" time="0"/>
+  <testcase name="isNotBillableTest" classname="com.scg.domain.ConsultantTimeTest" time="0"/>
+  <testcase name="setSkillTest" classname="com.scg.domain.ConsultantTimeTest" time="0"/>
+  <testcase name="setDateTest" classname="com.scg.domain.ConsultantTimeTest" time="0.003"/>
+  <testcase name="getDateTest" classname="com.scg.domain.ConsultantTimeTest" time="0"/>
+  <testcase name="notEqualsDiffTest" classname="com.scg.domain.ConsultantTimeTest" time="0"/>
+  <testcase name="getAccountTest" classname="com.scg.domain.ConsultantTimeTest" time="0.001"/>
+  <testcase name="hashCodeEqualsTest" classname="com.scg.domain.ConsultantTimeTest" time="0"/>
+  <testcase name="getHoursTest" classname="com.scg.domain.ConsultantTimeTest" time="0"/>
+  <testcase name="hashCodeNotEqualsTest" classname="com.scg.domain.ConsultantTimeTest" time="0"/>
+  <testcase name="equalsSameTest" classname="com.scg.domain.ConsultantTimeTest" time="0"/>
+  <testcase name="getSkillTest" classname="com.scg.domain.ConsultantTimeTest" time="0"/>
 </testsuite>

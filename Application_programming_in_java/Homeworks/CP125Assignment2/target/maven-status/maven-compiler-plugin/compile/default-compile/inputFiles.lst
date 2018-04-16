@@ -1,7 +1,10 @@
 /Users/jcrowley/University_of_Washington/Application_programming_in_java/Homeworks/CP125Assignment2/src/main/java/com/scg/util/Address.java
+/Users/jcrowley/University_of_Washington/Application_programming_in_java/Homeworks/CP125Assignment2/src/main/java/com/scg/domain/ConsultantTime.java
 /Users/jcrowley/University_of_Washington/Application_programming_in_java/Homeworks/CP125Assignment2/src/main/java/com/scg/domain/Consultant.java
+/Users/jcrowley/University_of_Washington/Application_programming_in_java/Homeworks/CP125Assignment2/src/main/java/com/scg/domain/TimeCard.java
 /Users/jcrowley/University_of_Washington/Application_programming_in_java/Homeworks/CP125Assignment2/src/main/java/com/scg/domain/Account.java
 /Users/jcrowley/University_of_Washington/Application_programming_in_java/Homeworks/CP125Assignment2/src/main/java/com/scg/util/StateCode.java
+/Users/jcrowley/University_of_Washington/Application_programming_in_java/Homeworks/CP125Assignment2/src/main/java/com/scg/domain/ClientAccount.java
 /Users/jcrowley/University_of_Washington/Application_programming_in_java/Homeworks/CP125Assignment2/src/main/java/com/scg/domain/NonBillableAccount.java
 /Users/jcrowley/University_of_Washington/Application_programming_in_java/Homeworks/CP125Assignment2/src/main/java/com/scg/domain/Skill.java
 /Users/jcrowley/University_of_Washington/Application_programming_in_java/Homeworks/CP125Assignment2/src/main/java/com/scg/util/PersonalName.java

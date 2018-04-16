@@ -111,6 +111,13 @@ public class PersonalName {
         return str;
     }
 
+    /**
+     * Determines whether this object is equal to a given object.
+     * The two objects are equal if they are both concrete PersonalName objects,
+     * and all corresponding properties are equal.
+     * @param o The given object
+     * @return True if the this object is equal to the given object, false otherwise.
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -121,9 +128,12 @@ public class PersonalName {
                 Objects.equals(middleName, that.middleName);
     }
 
+    /**
+     * Overrides Object.hashCode(); required because equals is overridden.
+     * @return The hash code for this object.
+     */
     @Override
     public int hashCode() {
-
         return Objects.hash(firstName, lastName, middleName);
     }
 }

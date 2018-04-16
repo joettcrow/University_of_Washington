@@ -118,7 +118,12 @@ public class ConsultantTime {
      * false otherwise.
      */
     public boolean isBillable(){
-        return account.isBillable();
+//        return account.isBillable();
+        Boolean billable = false;
+        if (this.skill != Skill.UNKNOWN_SKILL){
+            billable = true;
+        }
+        return billable;
     }
 
     /**

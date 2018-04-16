@@ -1,3 +1,6 @@
+com/scg/domain/TimeCardTest.class
+com/scg/domain/ClientAccountTest.class
+com/scg/domain/ConsultantTimeTest.class
 com/scg/domain/ConsultantTest.class
 com/scg/domain/SkillTest.class
 com/scg/util/PersonalNameTest.class

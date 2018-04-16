@@ -101,7 +101,6 @@ public class ClientAccount implements Account {
      */
     @Override
     public int hashCode() {
-
         return Objects.hash(name, contact, address);
     }
 }

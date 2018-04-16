@@ -1,7 +1,10 @@
 com/scg/domain/Consultant.class
+com/scg/domain/ClientAccount.class
 com/scg/domain/Skill.class
+com/scg/domain/ConsultantTime.class
 com/scg/domain/NonBillableAccount.class
 com/scg/util/Address.class
 com/scg/util/PersonalName.class
+com/scg/domain/TimeCard.class
 com/scg/util/StateCode.class
 com/scg/domain/Account.class
