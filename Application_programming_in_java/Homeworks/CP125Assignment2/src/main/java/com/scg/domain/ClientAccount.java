@@ -18,6 +18,17 @@ public class ClientAccount implements Account {
     private PersonalName contact;
     private Address address;
 
+    /**
+     * Constructor; sets the name, principal contact and address.
+     * @param name the name of the account as a string
+     * @param contact the contact for the account as a PersonalName
+     * @param address the address for the account as an Address
+     */
+    public ClientAccount(String name, PersonalName contact, Address address ){
+        this.name = name;
+        this.contact = contact;
+        this.address = address;
+    }
 
     /**
      * Returns the name of the account.
@@ -56,18 +67,6 @@ public class ClientAccount implements Account {
      * @param address The new address of the account
      */
     public void setAddress(Address address) {
-        this.address = address;
-    }
-
-    /**
-     * Constructor; sets the name, principal contact and address.
-     * @param name the name of the account as a string
-     * @param contact the contact for the account as a PersonalName
-     * @param address the address for the account as an Address
-     */
-    public ClientAccount(String name, PersonalName contact, Address address ){
-        this.name = name;
-        this.contact = contact;
         this.address = address;
     }
 
