@@ -184,7 +184,7 @@ public class TimeCard {
         StringBuilder bldr = new StringBuilder();
         Formatter formatter = new Formatter(bldr);
         bldr.append("Summary:" + System.lineSeparator());
-        String fmt = "%-30s %18s" + System.lineSeparator();
+        String fmt = "%-40s%9s" + System.lineSeparator();
         formatter.format(
                 fmt,
                 "Total Billable:",
