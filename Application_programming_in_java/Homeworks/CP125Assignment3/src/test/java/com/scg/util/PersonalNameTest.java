@@ -42,6 +42,17 @@ public class PersonalNameTest {
     }
 
     @Test
+    public void createPersonNulNames(){
+        PersonalName name = new PersonalName(
+                null,
+                null,
+                null);
+        assertEquals("",name.getFirstName());
+        assertEquals("",name.getLastName());
+        assertEquals("",name.getMiddleName());
+    }
+
+    @Test
     public void setFirstNameTest() {
         name1.setFirstName(firstName);
         assertEquals(firstName,name1.getFirstName());
@@ -57,6 +68,24 @@ public class PersonalNameTest {
     public void setMiddleNameTest() {
         name1.setMiddleName(middleName);
         assertEquals(middleName,name1.getMiddleName());
+    }
+
+    @Test
+    public void setNullFirstNameTest() {
+        name1.setFirstName(null);
+        assertEquals("",name1.getFirstName());
+    }
+
+    @Test
+    public void setNullLastNameTest() {
+        name1.setLastName(null);
+        assertEquals("",name1.getLastName());
+    }
+
+    @Test
+    public void setNullMiddleNameTest() {
+        name1.setMiddleName(null);
+        assertEquals("",name1.getMiddleName());
     }
 
     @Test

@@ -1,9 +1,11 @@
 package com.scg.domain;
 
-import java.text.NumberFormat;
+import com.scg.util.PersonalName;
+
+import java.text.DecimalFormat;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Formatter;
-import java.util.Locale;
 
 /**
  * This class encapsulates the properties of an invoice line-item:
@@ -77,14 +79,29 @@ public class InvoiceLineItem {
         return hours;
     }
 
+    /**
+     * Returns a readable string containing the properties of this object.
+     * Must be properly formatted for printing on an invoice.
+     * @return Readable string containing the properties of this object.
+     */
     @Override
     public String toString() {
-//         04/01/2004 Jefferson, Bob Joyce Project Manager 4 1,000.00
         StringBuilder bldr = new StringBuilder();
         Formatter formatter = new Formatter(bldr);
-        String dateFmt = "MM/dd/yyyy";
-        String charge = NumberFormat.getNumberInstance(Locale.US).format(this.getCharge());
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+        String df = dateTimeFormatter.format(date);
 
-        return super.toString();
+        String charge = new DecimalFormat("###,###.00").format(this.getCharge());
+        String fmt = "%-10s  %-27s  %-18s   %-5d  %-10s";
+        formatter.format(
+                fmt,
+                df,
+                consultant.getName().toString(),
+                skill.toString(),
+                hours,
+                charge
+                );
+
+        return bldr.toString();
     }
 }
