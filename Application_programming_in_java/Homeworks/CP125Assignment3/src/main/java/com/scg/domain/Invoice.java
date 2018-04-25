@@ -51,7 +51,6 @@ public class Invoice {
     }
 
 
-
     private Address scgAddressCreator(){
 
         String rootPath = Thread.currentThread().getContextClassLoader().getResource("").getPath();
@@ -98,6 +97,6 @@ public class Invoice {
         lineItems.add(item);
     }
 
-    
+
 }
 
