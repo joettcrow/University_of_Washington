@@ -6,6 +6,7 @@ import com.scg.util.StateCode;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.time.LocalDate;
+import java.time.Month;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
@@ -45,7 +46,7 @@ public class Invoice {
             scgAddress,
             clientAccount,
             LocalDate.now(),
-            LocalDate.of(invoiceYear,invoiceMonth,1)
+            getStartDate()
         );
         InvoiceFooter footer = new InvoiceFooter(scgName);
     }
@@ -97,12 +98,64 @@ public class Invoice {
     }
 
     public void extractLineItems( TimeCard timeCard ){
-        private List<InvoiceLineItem> tmp_lists = new ArrayList<>();
-        for (item: timeCard.getBillableHoursForClient(clientAccount.getName())){
-
+        List<ConsultantTime> tmp_lists = new ArrayList<>();
+        tmp_lists = timeCard.getBillableHoursForClient(clientAccount.getName());
+        for (ConsultantTime item: tmp_lists){
+            InvoiceLineItem lineItem = new InvoiceLineItem(
+                    item.getDate(),
+                    timeCard.getConsultant(),
+                    item.getSkill(),
+                    item.getHours());
+            addLineItems(lineItem);
         }
     }
 
+    /**
+     * Returns a string representation of this Invoice. Does not include line items.
+     * @return A string representation of this Invoice.
+     */
+    @Override
+    public String toString() {
+        String str = "client=" +
+                scgName +
+                ",invoiceYear=" +
+                invoiceYear +
+                ",invoiceMonth=" +
+                invoiceMonth;
+        return str;
+    }
 
+    /**
+     * Returns the client account associated with this Invoice.
+     * @return The client account associated with this Invoice.
+     */
+    public ClientAccount getClientAccount() {
+        return clientAccount;
+    }
+
+    /**
+     * Returns the month associated with this Invoice.
+     * @return The month associated with this Invoice.
+     */
+    public Month getInvoiceMonth() {
+        return invoiceMonth;
+    }
+
+    /**
+     * Returns the year associated with this Invoice.
+     * @return The year associated with this Invoice.
+     */
+    public int getInvoiceYear() {
+        return invoiceYear;
+    }
+
+    /**
+     * Returns a date that encapsulates the invoice month and year; the day is explicitly set to 1.
+     * @return A date that encapsulates the invoice month and year.
+     */
+    public LocalDate getStartDate(){
+        LocalDate date = LocalDate.of(invoiceYear,invoiceMonth,1);
+        return date;
+    }
 }
 
