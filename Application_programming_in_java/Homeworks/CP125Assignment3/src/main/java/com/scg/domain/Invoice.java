@@ -50,7 +50,6 @@ public class Invoice {
         InvoiceFooter footer = new InvoiceFooter(scgName);
     }
 
-
     private Address scgAddressCreator(){
 
         String rootPath = Thread.currentThread().getContextClassLoader().getResource("").getPath();
@@ -95,6 +94,13 @@ public class Invoice {
 
     public void addLineItems(InvoiceLineItem item) {
         lineItems.add(item);
+    }
+
+    public void extractLineItems( TimeCard timeCard ){
+        private List<InvoiceLineItem> tmp_lists = new ArrayList<>();
+        for (item: timeCard.getBillableHoursForClient(clientAccount.getName())){
+
+        }
     }
 
 
