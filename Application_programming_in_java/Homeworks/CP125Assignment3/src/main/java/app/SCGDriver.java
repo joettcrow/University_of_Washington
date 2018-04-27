@@ -7,6 +7,7 @@ import com.scg.domain.Account;
 import com.scg.domain.ClientAccount;
 import com.scg.domain.Consultant;
 import com.scg.domain.ConsultantTime;
+import com.scg.domain.Invoice;
 import com.scg.domain.NonBillableAccount;
 import com.scg.domain.Skill;
 import com.scg.domain.TimeCard;
@@ -86,6 +87,20 @@ public class SCGDriver
         {
             String  str = card.toReportString();
             System.out.println( str );
+        }
+
+        System.out.println();
+        System.out.println( "          ********************" );
+        System.out.println( "          ***** Invoices *****" );
+        System.out.println( "          ********************" );
+        for ( ClientAccount client : new ClientAccount[] { client1, client2 } )
+        {
+            Invoice invoice = new Invoice( client, thisMonth, thisYear );
+            invoice.extractLineItems( timeCard1 );
+            invoice.extractLineItems( timeCard2 );
+            invoice.extractLineItems( timeCard3 );
+            String  report  = invoice.toReportString();
+            System.out.println( report );
         }
     }
 

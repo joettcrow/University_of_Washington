@@ -27,19 +27,26 @@ public class InvoiceFooter {
 
     /**
      * Formats the footer as a string suitable for printing.
-     * @return Formats the footer as a string suitable for printing. The format of the string is discussed on The SCG Invoice page.
+     * @return Formats the footer as a string suitable for printing.
      */
     public String toString(){
         StringBuilder builder = new StringBuilder();
         Formatter formatter = new Formatter(builder);
-        String fmt = "%-70s%-5s%3s" + System.lineSeparator();
+        String fmt = "%-70s%-5s%4s" + System.lineSeparator();
 //        String name = "The Small Consulting Group";
-        String page = "Page";
+        String page = "Page:";
         formatter.format(
                 fmt,
                 businessName,
                 page,
                 pageNumber);
+        builder.append(
+                        "=====================" +
+                                "=================" +
+                                "=======================" +
+                                "==================" +
+                                System.lineSeparator()
+        );
 
         return builder.toString();
     }

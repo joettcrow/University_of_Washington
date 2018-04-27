@@ -4,6 +4,7 @@ import com.scg.util.Address;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Formatter;
 
 /**
  * Formats an invoice header
@@ -38,6 +39,31 @@ public class InvoiceHeader {
         return bld.toString();
     }
 
+    private String IntroForLineItems(){
+        StringBuilder bldr = new StringBuilder();
+        Formatter formatter = new Formatter(bldr);
+        String fmt = "%-10s  %-27s  %-18s   %-5s  %-10s";
+        formatter.format(
+                fmt,
+                "Date",
+                "Consultant",
+                "Skill",
+                "Hours",
+                "Charge"
+        );
+        bldr.append(System.lineSeparator());
+        formatter.format(
+                fmt,
+                "----------",
+                "---------------------------",
+                "------------------",
+                "-----",
+                "----------"
+                );
+        bldr.append(System.lineSeparator());
+        return bldr.toString();
+    }
+
     private String ClientAddressBuilder(){
         StringBuilder bld = new StringBuilder();
         bld.append("Invoice for: " + System.lineSeparator());
@@ -51,6 +77,7 @@ public class InvoiceHeader {
         String id = invoiceDateFormatter.format(invoiceDate);
         bld.append("Invoice Date: ");
         bld.append(id + System.lineSeparator() + System.lineSeparator());
+        bld.append(IntroForLineItems());
 
 
         return bld.toString();

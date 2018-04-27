@@ -2,12 +2,15 @@ package com.scg.domain;
 
 import com.scg.util.Address;
 import com.scg.util.StateCode;
+import com.sun.javafx.binding.StringFormatter;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.ArrayList;
+import java.util.Formatter;
 import java.util.List;
 import java.util.Properties;
 
@@ -26,6 +29,8 @@ public class Invoice {
     private Address scgAddress = scgAddressCreator();
     private String scgName = scgNameCreator();
     private List<InvoiceLineItem> lineItems = new ArrayList<>();
+    private InvoiceHeader invoiceHeader;
+    private InvoiceFooter invoiceFooter;
 
 
     /**
@@ -41,14 +46,14 @@ public class Invoice {
         this.invoiceMonth = month;
         this.invoiceYear = year;
 
-        InvoiceHeader header = new InvoiceHeader(
+        this.invoiceHeader = new InvoiceHeader(
             scgName,
             scgAddress,
             clientAccount,
             LocalDate.now(),
             getStartDate()
         );
-        InvoiceFooter footer = new InvoiceFooter(scgName);
+        this.invoiceFooter = new InvoiceFooter(scgName);
     }
 
     private Address scgAddressCreator(){
@@ -93,20 +98,31 @@ public class Invoice {
 
     }
 
+    /**
+     * Adds the given line item to this Invoice.
+     * @param item line item to add
+     */
     public void addLineItems(InvoiceLineItem item) {
         lineItems.add(item);
     }
 
+    /**
+     * Creates line items from the billable activity recorded on a consultant's time card.
+     * @param timeCard The time card to read from
+     */
     public void extractLineItems( TimeCard timeCard ){
         List<ConsultantTime> tmp_lists = new ArrayList<>();
         tmp_lists = timeCard.getBillableHoursForClient(clientAccount.getName());
+
         for (ConsultantTime item: tmp_lists){
-            InvoiceLineItem lineItem = new InvoiceLineItem(
-                    item.getDate(),
-                    timeCard.getConsultant(),
-                    item.getSkill(),
-                    item.getHours());
-            addLineItems(lineItem);
+            if (item.getDate().getMonth() == this.invoiceMonth) {
+                InvoiceLineItem lineItem = new InvoiceLineItem(
+                        item.getDate(),
+                        timeCard.getConsultant(),
+                        item.getSkill(),
+                        item.getHours());
+                addLineItems(lineItem);
+            }
         }
     }
 
@@ -157,5 +173,80 @@ public class Invoice {
         LocalDate date = LocalDate.of(invoiceYear,invoiceMonth,1);
         return date;
     }
+
+    /**
+     * Returns the total of all charges on this invoice.
+     * @return The total of all charges on this invoice.
+     */
+    public int getTotalCharges(){
+        int total = 0;
+        for (InvoiceLineItem item: lineItems) {
+            total += item.getCharge();
+        }
+        return total;
+    }
+
+    /**
+     * Returns the total of all hours billed on this invoice.
+     * @return The total of all hours billed on this invoice.
+     */
+    public int getTotalHours(){
+        int total = 0;
+        for (InvoiceLineItem item: lineItems) {
+            total += item.getHours();
+        }
+        return total;
+    }
+
+    /**
+     * Returns a string, suitable for printing and mailing, representing this invoice.
+     * @return A String representation of this invoice.
+     */
+    public String toReportString() {
+        StringBuilder builder = new StringBuilder();
+
+        builder.append(this.invoiceHeader.toString());
+
+        for (int itemNum = 0; itemNum < lineItems.size(); itemNum++) {
+            if ( (itemNum % 5 == 0) && (itemNum != 0) ){
+                builder.append(System.lineSeparator() + System.lineSeparator());
+                builder.append(System.lineSeparator());
+                builder.append(this.invoiceFooter.toString()+System.lineSeparator());
+                this.invoiceFooter.incrementPageNumber();
+                builder.append(this.invoiceHeader.toString());
+            }
+            builder.append(lineItems.get(itemNum).toString());
+            builder.append(System.lineSeparator());
+        }
+
+        builder.append(endingTotal());
+        builder.append(this.invoiceFooter.toString());
+
+        return builder.toString();
+    }
+
+    private String endingTotal(){
+        String charge = new DecimalFormat("###,###.00").format(getTotalCharges());
+        StringBuilder builder = new StringBuilder();
+        builder.append(System.lineSeparator());
+        Formatter formatter = new Formatter(builder);
+
+        String fmt = "%-10s  %-27s  %-18s   %5d  %10s";
+        formatter.format(
+                fmt,
+                "Total:",
+                "",
+                "",
+                getTotalHours(),
+                charge
+        );
+        builder.append(
+                System.lineSeparator() +
+                System.lineSeparator() +
+                System.lineSeparator()
+        );
+        return builder.toString();
+    }
+
 }
 
