@@ -92,7 +92,7 @@ public class InvoiceLineItem {
         String df = dateTimeFormatter.format(date);
 
         String charge = new DecimalFormat("###,###.00").format(this.getCharge());
-        String fmt = "%-10s  %-27s  %-18s   %5d  %10s";
+        String fmt = "%-10s  %-28s  %-18s  %5d  %10s";
         formatter.format(
                 fmt,
                 df,

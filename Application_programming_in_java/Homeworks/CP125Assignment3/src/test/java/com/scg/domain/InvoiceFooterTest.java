@@ -21,8 +21,11 @@ public class InvoiceFooterTest {
         footer.incrementPageNumber();
         String footerExpected = "The Small Consulting Group" +
                 "                                            " +
-                "Page   " +
+                "Page:   " +
                 "2" +
+                System.lineSeparator() +
+                "========================================" +
+                "=======================================" +
                 System.lineSeparator();
         assertEquals(footerExpected, footer.toString());
     }

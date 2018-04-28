@@ -42,7 +42,7 @@ public class InvoiceHeader {
     private String IntroForLineItems(){
         StringBuilder bldr = new StringBuilder();
         Formatter formatter = new Formatter(bldr);
-        String fmt = "%-10s  %-27s  %-18s   %-5s  %-10s";
+        String fmt = "%-10s  %-28s  %-18s  %-5s  %-10s";
         formatter.format(
                 fmt,
                 "Date",
@@ -55,7 +55,7 @@ public class InvoiceHeader {
         formatter.format(
                 fmt,
                 "----------",
-                "---------------------------",
+                "----------------------------",
                 "------------------",
                 "-----",
                 "----------"

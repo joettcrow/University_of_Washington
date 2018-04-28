@@ -2,8 +2,6 @@ package com.scg.domain;
 
 import com.scg.util.Address;
 import com.scg.util.StateCode;
-import com.sun.javafx.binding.StringFormatter;
-
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.text.DecimalFormat;
@@ -231,7 +229,7 @@ public class Invoice {
         builder.append(System.lineSeparator());
         Formatter formatter = new Formatter(builder);
 
-        String fmt = "%-10s  %-27s  %-18s   %5d  %10s";
+        String fmt = "%-10s  %-28s  %-18s  %5d  %10s";
         formatter.format(
                 fmt,
                 "Total:",

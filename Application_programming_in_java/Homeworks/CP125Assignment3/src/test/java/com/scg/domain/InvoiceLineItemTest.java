@@ -59,10 +59,10 @@ public class InvoiceLineItemTest {
     @Test
     public void toStringTest() {
         String str = "04/20/2018  " +
-                "Brubeck, Dave middle         " +
-                "Project Manager      " +
-                "20     " +
-                "5,000.00  ";
+                "Brubeck, Dave middle          " +
+                "Project Manager        " +
+                "20    " +
+                "5,000.00";
         assertEquals(str,lineItem.toString());
     }
 }

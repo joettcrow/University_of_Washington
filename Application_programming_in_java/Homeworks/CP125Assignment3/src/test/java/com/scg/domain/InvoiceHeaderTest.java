@@ -55,7 +55,18 @@ public class InvoiceHeaderTest {
                 "Client Name" + System.lineSeparator() +
                 "Invoice For Month of: April 2018" + System.lineSeparator() +
                 "Invoice Date: May 20, 2018" + System.lineSeparator() +
-                "" + System.lineSeparator();
+                System.lineSeparator() +
+                "Date        " +
+                "Consultant                    " +
+                "Skill               " +
+                "Hours  " +
+                "Charge    " +
+                System.lineSeparator() +
+                "----------  " +
+                "----------------------------  " +
+                "------------------  " +
+                "-----  " +
+                "----------" + System.lineSeparator();
         assertEquals(comparison, header.toString());
     }
 }
