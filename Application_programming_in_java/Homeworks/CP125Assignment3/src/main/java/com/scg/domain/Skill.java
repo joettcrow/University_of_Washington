@@ -8,10 +8,29 @@ package com.scg.domain;
  * @author jcrowley
  */
 public enum Skill {
+    /**
+     * Project Manager, 250 as hourly cost
+     */
     PROJECT_MANAGER("Project Manager",250),
+
+    /**
+     * System Architect, 200 as hourly cost
+     */
     SYSTEM_ARCHITECT("System Architect", 200),
+
+    /**
+     * Software Engineer, 150 as hourly cost
+     */
     SOFTWARE_ENGINEER("Software Engineer",150),
+
+    /**
+     * Software Tester, 100 as hourly cost
+     */
     SOFTWARE_TESTER("Software Tester",100),
+
+    /**
+     * Unknown Skill, 0 as hourly cost
+     */
     UNKNOWN_SKILL("Unknown Skill",0);
 
     private final String description;

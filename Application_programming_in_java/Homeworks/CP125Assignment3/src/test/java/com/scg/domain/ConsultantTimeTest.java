@@ -32,7 +32,7 @@ public class ConsultantTimeTest {
             contact,
             address
     );
-    private Integer hours = 10;
+    private int hours = 10;
     private Skill skill = Skill.SOFTWARE_TESTER;
     private ConsultantTime consultantTime = new ConsultantTime(
             date,
@@ -77,7 +77,7 @@ public class ConsultantTimeTest {
 
     @Test
     public void setHoursTest() {
-        Integer hours2 = 99;
+        int hours2 = 99;
         consultantTime.setHours(hours2);
         assertNotEquals(hours,consultantTime.getHours());
         assertEquals(hours2,consultantTime.getHours());
@@ -114,7 +114,7 @@ public class ConsultantTimeTest {
     @Test
     public void invalidHourTest(){
         String msg = "Hours Cannot be Zero or Negative";
-        Integer negHour = -10;
+        int negHour = -10;
         try {
             ConsultantTime cons2 = new ConsultantTime(
                     date,

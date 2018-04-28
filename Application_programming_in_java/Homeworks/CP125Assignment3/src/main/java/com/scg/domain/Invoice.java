@@ -131,7 +131,7 @@ public class Invoice {
     @Override
     public String toString() {
         String str = "client=" +
-                scgName +
+                clientAccount.getName() +
                 ",invoiceYear=" +
                 invoiceYear +
                 ",invoiceMonth=" +

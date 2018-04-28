@@ -84,7 +84,7 @@ public class ConsultantTime {
      * Gets the hours for this object.
      * @return The hours for this object.
      */
-    public Integer getHours() {
+    public int getHours() {
         return hours;
     }
 
@@ -136,7 +136,8 @@ public class ConsultantTime {
     public boolean equals(Object o) {
         boolean eq;
         if (this == o) eq = true;
-        if (o == null || getClass() != o.getClass()) eq = false;
+        if (o == null ) eq = false;
+        else if (getClass() != o.getClass()) eq = false;
         ConsultantTime that = (ConsultantTime) o;
         eq = Objects.equals(date, that.date) &&
                 Objects.equals(account, that.account) &&

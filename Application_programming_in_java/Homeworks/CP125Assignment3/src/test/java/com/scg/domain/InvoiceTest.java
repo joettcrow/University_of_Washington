@@ -7,6 +7,7 @@ import org.junit.Test;
 
 import java.time.LocalDate;
 import java.time.Month;
+import java.time.format.DateTimeFormatter;
 
 import static org.junit.Assert.*;
 
@@ -44,6 +45,12 @@ public class InvoiceTest {
             2018,
             4,
             1);
+    LocalDate dateNow = LocalDate.now();
+//    DateTimeFormatter dateMonthFormatter = DateTimeFormatter.ofPattern("MMMM yyyy");
+    DateTimeFormatter invoiceDateFormatter = DateTimeFormatter.ofPattern("MMMM dd, yyyy");
+//    String dmy = dateMonthFormatter.format(dateNow);
+    String dmdy = invoiceDateFormatter.format(dateNow);
+
     Consultant consultant1 = new Consultant(personalName1);
     Consultant consultant2 = new Consultant(personalName2);
     Skill skill1 = Skill.PROJECT_MANAGER;
@@ -92,7 +99,7 @@ public class InvoiceTest {
 
     @Test
     public void toStringTest() {
-        String exp = "client=The Small Consulting Group,invoiceYear=2018,invoiceMonth=APRIL";
+        String exp = "client=ClientName,invoiceYear=2018,invoiceMonth=APRIL";
         assertEquals(exp,invoice.toString());
     }
 
@@ -132,7 +139,7 @@ public class InvoiceTest {
                 + System.lineSeparator() +
                 "Invoice For Month of: April 2018" +
                 System.lineSeparator() +
-                "Invoice Date: April 27, 2018" +
+                "Invoice Date: " + dmdy +
                 System.lineSeparator() +
                 "" + System.lineSeparator() +
                 "Date        " +
@@ -195,7 +202,7 @@ public class InvoiceTest {
                 "Invoice for: " + System.lineSeparator() +
                 "ClientName" + System.lineSeparator() +
                 "Invoice For Month of: April 2018" + System.lineSeparator() +
-                "Invoice Date: April 27, 2018" + System.lineSeparator() +
+                "Invoice Date: " + dmdy + System.lineSeparator() +
                 "" + System.lineSeparator() +
                 "Date        " +
                 "Consultant                    " +

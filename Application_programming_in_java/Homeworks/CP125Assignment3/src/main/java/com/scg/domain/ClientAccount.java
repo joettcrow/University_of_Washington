@@ -87,7 +87,8 @@ public class ClientAccount implements Account {
     public boolean equals(Object o) {
         boolean eq = false;
         if (this == o) eq = true;
-        if (o == null || getClass() != o.getClass()) eq = false;
+        if (o==null) eq = false;
+        else if (getClass() != o.getClass()) eq = false;
         ClientAccount that = (ClientAccount) o;
         if (Objects.equals(name, that.name)) if (Objects.equals(contact, that.contact))
             if (Objects.equals(address, that.address)) eq = true;
