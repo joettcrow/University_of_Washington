@@ -126,4 +126,30 @@ public class ClientAccountTest {
                 address2);
         assertNotEquals(acct1.hashCode(),acct2.hashCode());
     }
+
+    @Test
+    public void compareClientAccountsTest(){
+        PersonalName contact2 = new PersonalName(
+                "Last2",
+                "First2",
+                "Middle2"
+        );
+        Address address2 = new Address(
+                "1234 DiffStreetNum",
+                "Diff City",
+                StateCode.TX,
+                "Diff 1234"
+        );
+        ClientAccount acct2 = new ClientAccount(
+                "name2",
+                contact2,
+                address2);
+        assert acct1.compareTo(acct2) < 0;
+    }
+
+    @Test
+    public void compareSameClientAccountTest(){
+        ClientAccount acct2 = acct1;
+        assertEquals(0,acct2.compareTo(acct1));
+    }
 }

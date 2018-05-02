@@ -152,7 +152,6 @@ public class ConsultantTime {
      */
     @Override
     public int hashCode() {
-
         return Objects.hash(date, account, hours, skill);
     }
 }

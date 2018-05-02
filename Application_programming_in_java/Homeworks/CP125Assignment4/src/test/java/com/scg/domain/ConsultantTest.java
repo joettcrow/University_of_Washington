@@ -76,4 +76,18 @@ public class ConsultantTest {
         assertNotEquals(cons1.hashCode(),cons3.hashCode());
     }
 
+    @Test
+    public void compareConsultantEqualTest(){
+        Consultant cons1 = new Consultant(name1);
+        Consultant cons1Again = new Consultant(name1);
+        assertEquals(0, cons1Again.compareTo(cons1));
+    }
+
+    @Test
+    public void compareConsultantFirstTest(){
+        Consultant cons1 = new Consultant(name1);
+        Consultant cons3 = new Consultant(name3);
+        assertEquals(1, cons3.compareTo(cons1));
+    }
+
 }

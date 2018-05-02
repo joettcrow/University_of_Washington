@@ -1,7 +1,10 @@
 package com.scg.domain;
 
 import com.scg.util.Address;
+import com.scg.util.DateRange;
 import com.scg.util.StateCode;
+import com.scg.util.TimeCardListUtil;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.text.DecimalFormat;
@@ -11,6 +14,7 @@ import java.util.ArrayList;
 import java.util.Formatter;
 import java.util.List;
 import java.util.Properties;
+import java.util.stream.Collectors;
 
 /**
  * This class encapsulates the properties of an invoice:
@@ -104,24 +108,46 @@ public class Invoice {
         lineItems.add(item);
     }
 
+//    /**
+//     * Creates line items from the billable activity recorded on a consultant's time card.
+//     * @param timeCard The time card to read from
+//     */
+//    public void extractLineItems( TimeCard timeCard ){
+//        List<ConsultantTime> tmp_lists = new ArrayList<>();
+//        tmp_lists = timeCard.getBillableHoursForClient(clientAccount.getName());
+//
+//        for (ConsultantTime item: tmp_lists){
+//            if (item.getDate().getMonth() == this.invoiceMonth) {
+//                InvoiceLineItem lineItem = new InvoiceLineItem(
+//                        item.getDate(),
+//                        timeCard.getConsultant(),
+//                        item.getSkill(),
+//                        item.getHours());
+//                addLineItems(lineItem);
+//            }
+//        }
+//    }
+
     /**
      * Creates line items from the billable activity recorded on a consultant's time card.
      * @param timeCard The time card to read from
      */
     public void extractLineItems( TimeCard timeCard ){
-        List<ConsultantTime> tmp_lists = new ArrayList<>();
-        tmp_lists = timeCard.getBillableHoursForClient(clientAccount.getName());
-
-        for (ConsultantTime item: tmp_lists){
-            if (item.getDate().getMonth() == this.invoiceMonth) {
-                InvoiceLineItem lineItem = new InvoiceLineItem(
-                        item.getDate(),
-                        timeCard.getConsultant(),
-                        item.getSkill(),
-                        item.getHours());
-                addLineItems(lineItem);
-            }
-        }
+        List<ConsultantTime> tmp_lists = timeCard
+                .getBillableHoursForClient(clientAccount.getName())
+                .stream()
+                .filter(s -> s.getDate().getMonth().equals(invoiceMonth))
+                .map((ConsultantTime x) -> {
+                    InvoiceLineItem item = new InvoiceLineItem(
+                            x.getDate(),
+                            timeCard.getConsultant(),
+                            x.getSkill(),
+                            x.getHours()
+                    );
+                    addLineItems(item);
+                    return x;
+                }
+                ).collect(Collectors.toList());
     }
 
     /**

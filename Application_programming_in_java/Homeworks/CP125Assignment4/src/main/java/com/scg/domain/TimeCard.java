@@ -1,10 +1,15 @@
 package com.scg.domain;
 
+import com.scg.util.TimeCardConsultantComparator;
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Formatter;
 import java.util.List;
+
+import static com.scg.util.TimeCardConsultantComparator.*;
 
 /**
  * Encapsulates one week's worth of consultant activity. It has the following properties:
@@ -14,7 +19,7 @@ import java.util.List;
  * A list of ConsultantTime objects that describe the consultant's activity.
  * @author jcrowley
  */
-public class TimeCard {
+public class TimeCard implements Comparable<TimeCard> {
     private final Consultant consultant;
     private final LocalDate weekStartingDate;
     private List<ConsultantTime> consultantTimes = new ArrayList<>();
@@ -238,5 +243,57 @@ public class TimeCard {
         String resp = consultantName + " " + date;
         return resp;
 
+    }
+
+
+    /**
+     * Compares this object with the specified object for order.  Returns a
+     * negative integer, zero, or a positive integer as this object is less
+     * than, equal to, or greater than the specified object.
+     * <p>
+     * <p>The implementor must ensure <tt>sgn(x.compareTo(y)) ==
+     * -sgn(y.compareTo(x))</tt> for all <tt>x</tt> and <tt>y</tt>.  (This
+     * implies that <tt>x.compareTo(y)</tt> must throw an exception iff
+     * <tt>y.compareTo(x)</tt> throws an exception.)
+     * <p>
+     * <p>The implementor must also ensure that the relation is transitive:
+     * <tt>(x.compareTo(y)&gt;0 &amp;&amp; y.compareTo(z)&gt;0)</tt> implies
+     * <tt>x.compareTo(z)&gt;0</tt>.
+     * <p>
+     * <p>Finally, the implementor must ensure that <tt>x.compareTo(y)==0</tt>
+     * implies that <tt>sgn(x.compareTo(z)) == sgn(y.compareTo(z))</tt>, for
+     * all <tt>z</tt>.
+     * <p>
+     * <p>It is strongly recommended, but <i>not</i> strictly required that
+     * <tt>(x.compareTo(y)==0) == (x.equals(y))</tt>.  Generally speaking, any
+     * class that implements the <tt>Comparable</tt> interface and violates
+     * this condition should clearly indicate this fact.  The recommended
+     * language is "Note: this class has a natural ordering that is
+     * inconsistent with equals."
+     * <p>
+     * <p>In the foregoing description, the notation
+     * <tt>sgn(</tt><i>expression</i><tt>)</tt> designates the mathematical
+     * <i>signum</i> function, which is defined to return one of <tt>-1</tt>,
+     * <tt>0</tt>, or <tt>1</tt> according to whether the value of
+     * <i>expression</i> is negative, zero or positive.
+     *
+     * @param card the object to be compared.
+     * @return a negative integer, zero, or a positive integer as this object
+     * is less than, equal to, or greater than the specified object.
+     * @throws NullPointerException if the specified object is null
+     * @throws ClassCastException   if the specified object's type prevents it
+     *                              from being compared to this object.
+     */
+    public int compareTo(TimeCard card) {
+        if ( this == null || card == null )
+            throw new NullPointerException();
+
+        int rcode = Comparator.comparing( TimeCard::getConsultant)
+                .thenComparing(TimeCard::getWeekStartingDate)
+                .thenComparing(TimeCard::getTotalBillableHours)
+                .thenComparing(TimeCard::getTotalNonBillableHours)
+                .compare(this,card);
+
+        return rcode;
     }
 }

@@ -17,6 +17,14 @@ public class InvoiceHeader {
     private final LocalDate invoiceDate;
     private final LocalDate invoiceForMonth;
 
+    /**
+     * Constructs an invoice header
+     * @param businessName the business name as a string
+     * @param businessAddress the businessAddress as an address
+     * @param client the client as a clientAccount
+     * @param invoiceDate the date as a local date
+     * @param invoiceForMonth the invoice month as a date
+     */
     public InvoiceHeader(
             String businessName,
             Address businessAddress,
