@@ -5,9 +5,10 @@ import com.scg.domain.TimeCard;
 import java.util.Comparator;
 
 /**
+ * This class contains one method
+ * which is used to define an order for sorting time cards.
  * @author jcrowley
  */
-
 public class TimeCardConsultantComparator
         implements Comparator<TimeCard> {
 
@@ -55,7 +56,7 @@ public class TimeCardConsultantComparator
     @Override
     public int compare(TimeCard card1, TimeCard card2) {
         if ( card1 == null || card2 == null )
-            throw new NullPointerException();
+            throw new NullPointerException("Card cannot be null");
 
         int rcode = Comparator.comparing( TimeCard::getConsultant)
                 .thenComparing(TimeCard::getWeekStartingDate)

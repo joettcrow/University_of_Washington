@@ -148,4 +148,43 @@ public class TimeCardTest {
         String timeCardString = name.toString() + " 15/04/2018";
         assertEquals(timeCardString,timeCard.toString());
     }
+
+    @Test
+    public void compareTimeCardTest(){
+        LocalDate weekStartingDate2 = LocalDate.of(
+                2018,
+                3,
+                15
+        );
+        TimeCard timeCard2 = new TimeCard(consultant,weekStartingDate2);
+        assert timeCard2.compareTo(timeCard) < 0;
+    }
+
+    @Test
+    public void compareReverseTimeCardTest(){
+        LocalDate weekStartingDate2 = LocalDate.of(
+                2018,
+                3,
+                15
+        );
+        TimeCard timeCard2 = new TimeCard(consultant,weekStartingDate2);
+        assert timeCard.compareTo(timeCard2) > 0;
+    }
+
+    @Test
+    public void compareSameTimeCardTest(){
+        TimeCard timeCard2 = new TimeCard(consultant,weekStartingDate);
+        assertEquals(0,timeCard2.compareTo(timeCard));
+    }
+
+    @Test
+    public void compareNullTimeCardTest(){
+        TimeCard timeCard2 = null;
+        try {
+            timeCard.compareTo(timeCard2);
+        }
+        catch (NullPointerException e){
+            assertEquals("Card cannot be null", e.getMessage());
+        }
+    }
 }

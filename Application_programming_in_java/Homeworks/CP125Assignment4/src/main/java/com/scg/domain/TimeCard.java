@@ -9,7 +9,6 @@ import java.util.Comparator;
 import java.util.Formatter;
 import java.util.List;
 
-import static com.scg.util.TimeCardConsultantComparator.*;
 
 /**
  * Encapsulates one week's worth of consultant activity. It has the following properties:
@@ -285,15 +284,18 @@ public class TimeCard implements Comparable<TimeCard> {
      *                              from being compared to this object.
      */
     public int compareTo(TimeCard card) {
-        if ( this == null || card == null )
-            throw new NullPointerException();
+//        if (card == null)
+//            throw new NullPointerException("Can't compare to nothing");
+//
+//        int rcode = Comparator.comparing( TimeCard::getConsultant)
+//                .thenComparing(TimeCard::getWeekStartingDate)
+//                .thenComparing(TimeCard::getTotalBillableHours)
+//                .thenComparing(TimeCard::getTotalNonBillableHours)
+//                .compare(this,card);
 
-        int rcode = Comparator.comparing( TimeCard::getConsultant)
-                .thenComparing(TimeCard::getWeekStartingDate)
-                .thenComparing(TimeCard::getTotalBillableHours)
-                .thenComparing(TimeCard::getTotalNonBillableHours)
-                .compare(this,card);
+        TimeCardConsultantComparator comparator  =
+                new TimeCardConsultantComparator();
 
-        return rcode;
+        return comparator.compare(this,card);
     }
 }

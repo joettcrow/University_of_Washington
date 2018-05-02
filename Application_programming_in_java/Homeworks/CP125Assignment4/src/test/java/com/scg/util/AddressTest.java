@@ -23,6 +23,7 @@ public class AddressTest {
 
     Address address1 = new Address(streetNum1,city1,state1,postCode1);
 
+
     @Test
     public void createAddressTest() {
         Address address = new Address(streetNum1,city1,state1,postCode1);
@@ -94,6 +95,39 @@ public class AddressTest {
                 StateCode.TX,
                 postCode1);
         assertNotEquals(address1.hashCode(),address2.hashCode());
+    }
+
+    @Test
+    public void compareAddressTest(){
+        Address address2 = new Address(
+                streetNum1,
+                city1,
+                StateCode.AZ,
+                postCode1
+        );
+        assert address1.compareTo(address2) > 0;
+    }
+
+    @Test
+    public void compareReverseAddressTest(){
+        Address address2 = new Address(
+                streetNum1,
+                city1,
+                StateCode.AZ,
+                postCode1
+        );
+        assert address2.compareTo(address1) < 0;
+    }
+
+    @Test
+    public void compareSameAddressTest(){
+        Address address2 = new Address(
+                streetNum1,
+                city1,
+                state1,
+                postCode1
+        );
+        assertEquals(0,address1.compareTo(address2));
     }
 
 }
