@@ -7,8 +7,17 @@ package com.scg.domain;
  * @author jcrowley
  */
 public enum NonBillableAccount implements Account{
+    /**
+     * Business Development
+     */
     BUSINESS_DEVELOPMENT("Business Development"),
+    /**
+     * Sick Leave
+     */
     SICK_LEAVE("Sick Leave"),
+    /**
+     * Vacation
+     */
     VACATION("Vacation");
 
     private final String name;

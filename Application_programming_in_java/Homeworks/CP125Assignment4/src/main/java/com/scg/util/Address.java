@@ -149,10 +149,10 @@ public class Address implements Comparable<Address>{
      */
     @Override
     public int compareTo(Address address) {
-        int rcode = Comparator.comparing(Address::getStreetNumber)
-                .thenComparing(Address::getCity)
-                .thenComparing(Address::getState)
+        int rcode = Comparator.comparing(Address::getState)
                 .thenComparing(Address::getPostalCode)
+                .thenComparing(Address::getCity)
+                .thenComparing(Address::getStreetNumber)
                 .compare(this,address);
         return rcode;
     }
