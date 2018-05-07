@@ -1,0 +1,82 @@
+GeoOval: origin=(1.1000,2.2000),color=#ff0000,edgeColor=#0000ff,edgeWidth=1.0000,width=10.3000,height=20.7000
+    area = 167.4547
+    peri = 51.3619
+GeoRectangle: origin=(3.3000,4.4000),color=#00ff00,edgeColor=#0000ff,edgeWidth=1.0000,width=10.3000,height=20.7000
+    area = 213.2100
+    peri = 62.0000
+GeoOval: origin=(5.5000,6.6000),color=#0000ff,edgeColor=#0000ff,edgeWidth=1.0000,width=15.2000,height=31.6000
+    area = 377.2424
+    peri = 77.8963
+GeoRectangle: origin=(5.5000,6.6000),color=#0000ff,edgeColor=#0000ff,edgeWidth=1.0000,width=15.2000,height=31.6000
+    area = 480.3200
+    peri = 93.6000
+GeoOval: origin=(9.9000,10.0100),color=#00ffff,edgeColor=#0000ff,edgeWidth=1.0000,width=91.4000,height=50.2000
+    area = 3603.6267
+    peri = 231.6485
+GeoRectangle: origin=(9.9000,10.0100),color=#00ffff,edgeColor=#0000ff,edgeWidth=1.0000,width=91.4000,height=50.2000
+    area = 4588.2800
+    peri = 283.2000
+GeoRectangle: origin=(12.0200,13.0300),color=#000000,edgeColor=#0000ff,edgeWidth=1.0000,width=23.6000,height=17.9000
+    area = 422.4400
+    peri = 83.0000
+GeoRectangle: origin=(13.0200,14.0300),color=#ffffff,edgeColor=#0000ff,edgeWidth=1.0000,width=4.5000,height=6.2000
+    area = 27.9000
+    peri = 21.4000
+GeoOval: origin=(12.0200,13.0300),color=#000000,edgeColor=#0000ff,edgeWidth=1.0000,width=23.6000,height=17.9000
+    area = 331.7836
+    peri = 65.8001
+GeoOval: origin=(13.0200,14.0300),color=#ffffff,edgeColor=#0000ff,edgeWidth=1.0000,width=4.5000,height=6.2000
+    area = 21.9126
+    peri = 17.0183
+GeoLine: origin=(1.1000,2.2000),color=null,edgeColor=#ff0000,edgeWidth=1.0000,end=(10.3000,20.7000)
+    slo = 2.0109
+    len = 20.6613
+GeoLine: origin=(3.3000,4.4000),color=null,edgeColor=#00ff00,edgeWidth=1.0000,end=(10.3000,20.7000)
+    slo = 2.3286
+    len = 17.7395
+GeoLine: origin=(5.5000,6.6000),color=null,edgeColor=#0000ff,edgeWidth=1.0000,end=(15.2000,31.6000)
+    slo = 2.5773
+    len = 26.8159
+GeoPoint equality check:(5.0000,6.0000)/(5.0000,6.0000): true
+GeoPoint equality check:(5.0000,6.0000)/(5.0000,6.0000): true
+GeoPoint equality check:(5.0000,6.0000)/(5.0000,6.0000): true
+GeoPoint equality check:(5.0000,6.0000)/(1.0000,5.1112): false
+GeoPoint equality check:(5.0000,6.0000)/null: false
+GeoPoint equality check:(5.0000,6.0000)/(1.0000,5.1112): false
+GeoPoint equality check:(1.0000,5.1112)/(1.0000,5.1112): true
+GeoRectangle equality check:
+    origin=(5.0000,6.0000),color=#ff0000,edgeColor=#0000ff,edgeWidth=1.0000,width=5.0000,height=10.0000
+    origin=(5.0000,6.0000),color=#ff0000,edgeColor=#0000ff,edgeWidth=1.0000,width=5.0000,height=10.0000
+    true
+GeoRectangle equality check:
+    origin=(5.0000,6.0000),color=#ff0000,edgeColor=#0000ff,edgeWidth=1.0000,width=5.0000,height=10.0000
+    origin=(5.0000,6.0000),color=#ff0000,edgeColor=#0000ff,edgeWidth=1.0000,width=5.0000,height=10.0000
+    false
+GeoRectangle equality check:
+    origin=(5.0000,6.0000),color=#ff0000,edgeColor=#0000ff,edgeWidth=1.0000,width=5.0000,height=10.0000
+    null
+    false
+GeoOval equality check:
+    origin=(5.0000,6.0000),color=#ff0000,edgeColor=#0000ff,edgeWidth=1.0000,width=5.0000,height=10.0000
+    origin=(5.0000,6.0000),color=#ff0000,edgeColor=#0000ff,edgeWidth=1.0000,width=5.0000,height=10.0000
+    true
+GeoOval equality check:
+    origin=(5.0000,6.0000),color=#ff0000,edgeColor=#0000ff,edgeWidth=1.0000,width=5.0000,height=10.0000
+    origin=(5.0000,6.0000),color=#ff0000,edgeColor=#0000ff,edgeWidth=1.0000,width=5.0000,height=10.0000
+    false
+GeoOval equality check:
+    origin=(5.0000,6.0000),color=#ff0000,edgeColor=#0000ff,edgeWidth=1.0000,width=5.0000,height=10.0000
+    null
+    false
+GeoLine equality check:
+    origin=(5.0000,6.0000),color=null,edgeColor=#ff0000,edgeWidth=1.0000,end=(5.0000,6.0000)
+    origin=(5.0000,6.0000),color=null,edgeColor=#ff0000,edgeWidth=1.0000,end=(5.0000,6.0000)
+    true
+GeoLine equality check:
+    origin=(5.0000,6.0000),color=null,edgeColor=#ff0000,edgeWidth=1.0000,end=(5.0000,6.0000)
+    origin=(5.0000,6.0000),color=null,edgeColor=#ff0000,edgeWidth=1.0000,end=(1.0000,5.1112)
+    false
+GeoLine equality check:
+    origin=(5.0000,6.0000),color=null,edgeColor=#ff0000,edgeWidth=1.0000,end=(5.0000,6.0000)
+    null
+    false
