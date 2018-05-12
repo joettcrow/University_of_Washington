@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.scg.util.AddressTest" time="0.007" tests="11" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.scg.util.AddressTest" time="0.008" tests="11" errors="0" skipped="0" failures="0">
   <properties>
     <property name="gopherProxySet" value="false"/>
     <property name="awt.toolkit" value="sun.lwawt.macosx.LWCToolkit"/>
@@ -7,7 +7,7 @@
     <property name="java.specification.version" value="1.8"/>
     <property name="sun.cpu.isalist" value=""/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
-    <property name="java.class.path" value="/Users/jcrowley/University_of_Washington/Application_programming_in_java/Homeworks/CP125Assignment5/target/test-classes:/Users/jcrowley/University_of_Washington/Application_programming_in_java/Homeworks/CP125Assignment5/target/classes:/Users/jcrowley/.m2/repository/junit/junit/4.12/junit-4.12.jar:/Users/jcrowley/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/Users/jcrowley/.m2/repository/org/slf4j/slf4j-api/1.7.22/slf4j-api-1.7.22.jar:/Users/jcrowley/.m2/repository/org/slf4j/slf4j-jdk14/1.7.22/slf4j-jdk14-1.7.22.jar:"/>
+    <property name="java.class.path" value="/Users/jcrowley/University_of_Washington/Application_programming_in_java/Homeworks/CP125Assignment5/target/test-classes:/Users/jcrowley/University_of_Washington/Application_programming_in_java/Homeworks/CP125Assignment5/target/classes:/Users/jcrowley/.m2/repository/org/slf4j/slf4j-api/1.7.22/slf4j-api-1.7.22.jar:/Users/jcrowley/.m2/repository/org/slf4j/slf4j-jdk14/1.7.22/slf4j-jdk14-1.7.22.jar:/Users/jcrowley/.m2/repository/junit/junit/4.12/junit-4.12.jar:/Users/jcrowley/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:"/>
     <property name="java.vm.vendor" value="Oracle Corporation"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.vendor.url" value="http://java.oracle.com/"/>
@@ -17,8 +17,8 @@
     <property name="user.country" value="US"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_102.jdk/Contents/Home/jre/lib"/>
-    <property name="sun.java.command" value="/Users/jcrowley/University_of_Washington/Application_programming_in_java/Homeworks/CP125Assignment5/target/surefire/surefirebooter8019009612247458618.jar /Users/jcrowley/University_of_Washington/Application_programming_in_java/Homeworks/CP125Assignment5/target/surefire 2018-05-06T17-18-09_831-jvmRun1 surefire3782787940728595814tmp surefire_05199388199079345497tmp"/>
-    <property name="surefire.test.class.path" value="/Users/jcrowley/University_of_Washington/Application_programming_in_java/Homeworks/CP125Assignment5/target/test-classes:/Users/jcrowley/University_of_Washington/Application_programming_in_java/Homeworks/CP125Assignment5/target/classes:/Users/jcrowley/.m2/repository/junit/junit/4.12/junit-4.12.jar:/Users/jcrowley/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/Users/jcrowley/.m2/repository/org/slf4j/slf4j-api/1.7.22/slf4j-api-1.7.22.jar:/Users/jcrowley/.m2/repository/org/slf4j/slf4j-jdk14/1.7.22/slf4j-jdk14-1.7.22.jar:"/>
+    <property name="sun.java.command" value="/Users/jcrowley/University_of_Washington/Application_programming_in_java/Homeworks/CP125Assignment5/target/surefire/surefirebooter5627694158937021895.jar /Users/jcrowley/University_of_Washington/Application_programming_in_java/Homeworks/CP125Assignment5/target/surefire 2018-05-11T16-25-00_594-jvmRun1 surefire4449099968441334129tmp surefire_03890661708310865150tmp"/>
+    <property name="surefire.test.class.path" value="/Users/jcrowley/University_of_Washington/Application_programming_in_java/Homeworks/CP125Assignment5/target/test-classes:/Users/jcrowley/University_of_Washington/Application_programming_in_java/Homeworks/CP125Assignment5/target/classes:/Users/jcrowley/.m2/repository/org/slf4j/slf4j-api/1.7.22/slf4j-api-1.7.22.jar:/Users/jcrowley/.m2/repository/org/slf4j/slf4j-jdk14/1.7.22/slf4j-jdk14-1.7.22.jar:/Users/jcrowley/.m2/repository/junit/junit/4.12/junit-4.12.jar:/Users/jcrowley/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="/Users/jcrowley"/>
     <property name="user.language" value="en"/>
@@ -30,7 +30,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.awt.graphicsenv" value="sun.awt.CGraphicsEnvironment"/>
-    <property name="surefire.real.class.path" value="/Users/jcrowley/University_of_Washington/Application_programming_in_java/Homeworks/CP125Assignment5/target/surefire/surefirebooter8019009612247458618.jar"/>
+    <property name="surefire.real.class.path" value="/Users/jcrowley/University_of_Washington/Application_programming_in_java/Homeworks/CP125Assignment5/target/surefire/surefirebooter5627694158937021895.jar"/>
     <property name="sun.boot.class.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_102.jdk/Contents/Home/jre/lib/resources.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_102.jdk/Contents/Home/jre/lib/rt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_102.jdk/Contents/Home/jre/lib/sunrsasign.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_102.jdk/Contents/Home/jre/lib/jsse.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_102.jdk/Contents/Home/jre/lib/jce.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_102.jdk/Contents/Home/jre/lib/charsets.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_102.jdk/Contents/Home/jre/lib/jfr.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_102.jdk/Contents/Home/jre/classes"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="1.8.0_102-b14"/>
@@ -58,15 +58,15 @@
     <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
     <property name="java.class.version" value="52.0"/>
   </properties>
-  <testcase name="addressSameEqualsTest" classname="com.scg.util.AddressTest" time="0.001"/>
+  <testcase name="addressSameEqualsTest" classname="com.scg.util.AddressTest" time="0"/>
   <testcase name="createAddressTest" classname="com.scg.util.AddressTest" time="0"/>
-  <testcase name="compareSameAddressTest" classname="com.scg.util.AddressTest" time="0.001"/>
-  <testcase name="addressToStringTest" classname="com.scg.util.AddressTest" time="0"/>
-  <testcase name="compareReverseAddressTest" classname="com.scg.util.AddressTest" time="0.001"/>
+  <testcase name="compareSameAddressTest" classname="com.scg.util.AddressTest" time="0"/>
+  <testcase name="addressToStringTest" classname="com.scg.util.AddressTest" time="0.001"/>
+  <testcase name="compareReverseAddressTest" classname="com.scg.util.AddressTest" time="0"/>
   <testcase name="addressNotEqualTest" classname="com.scg.util.AddressTest" time="0"/>
-  <testcase name="hashCodeEqualsTest" classname="com.scg.util.AddressTest" time="0.001"/>
-  <testcase name="tryNullAddressTest" classname="com.scg.util.AddressTest" time="0.001"/>
-  <testcase name="compareAddressTest" classname="com.scg.util.AddressTest" time="0"/>
-  <testcase name="hashCodeNotEqualsTest" classname="com.scg.util.AddressTest" time="0.001"/>
+  <testcase name="hashCodeEqualsTest" classname="com.scg.util.AddressTest" time="0"/>
+  <testcase name="tryNullAddressTest" classname="com.scg.util.AddressTest" time="0"/>
+  <testcase name="compareAddressTest" classname="com.scg.util.AddressTest" time="0.003"/>
+  <testcase name="hashCodeNotEqualsTest" classname="com.scg.util.AddressTest" time="0"/>
   <testcase name="addressEqualTest" classname="com.scg.util.AddressTest" time="0"/>
 </testsuite>
