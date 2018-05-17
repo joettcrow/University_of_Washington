@@ -67,6 +67,7 @@ public class Assignment05 {
         return timeCardList;
     }
 
+
     /**
      * Main method that deserializes TimeCardList.ser and ClientList.ser
      * Then creates invoices for each company.

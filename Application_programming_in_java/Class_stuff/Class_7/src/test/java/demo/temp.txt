@@ -1,0 +1,33 @@
+Apr 17, 2018 11:07:52 AM demo.DeleteExample main
+INFO: truncating transaction table
+Apr 17, 2018 11:07:53 AM demo.DeleteExample main
+INFO: populating transaction table
+Apr 17, 2018 11:07:53 AM demo.DeleteExample main
+INFO: dumping initial transaction table
+***** Dump Transaction Table
+Fred       2018-04-17  64.44
+Wilma      2018-04-18  31.57
+Barney     2018-04-19  64.69
+Betty      2018-04-20  97.45
+Manny      2018-04-21  60.60
+Moe        2018-04-22   8.16
+Maxine     2018-04-23  40.24
+Ally       2018-04-24  19.13
+Jared      2018-04-25  25.11
+Confucius  2018-04-26  47.60
+****************************
+Apr 17, 2018 11:07:53 AM demo.DeleteExample main
+delete BETWEEN:
+    2018-04-20 AND
+    2018-04-24
+Apr 17, 2018 11:07:53 AM demo.DeleteExample main
+INFO: dumping modified transaction table
+***** Dump Transaction Table
+Fred       2018-04-17  64.44
+Wilma      2018-04-18  31.57
+Barney     2018-04-19  64.69
+Jared      2018-04-25  25.11
+Confucius  2018-04-26  47.60
+****************************
+Apr 17, 2018 11:07:53 AM demo.DeleteExample main
+INFO: demo complete

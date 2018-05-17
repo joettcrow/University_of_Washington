@@ -28,6 +28,5 @@ public class TemperatureMonitor {
         double oldVal = this.celsius;
         this.celsius = celsius;
         pcSupport.firePropertyChange("celsius",oldVal,celsius);
-
     }
 }

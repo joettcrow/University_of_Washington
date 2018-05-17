@@ -17,6 +17,8 @@ import javax.swing.JFileChooser;
  */
 public class InitLists implements Serializable{
 
+    public static final String CLIENT_FILE = "ClientList.ser";
+
     private static void serializeTimeCards(List<TimeCard> timeCardList){
         try ( FileOutputStream fStream = new FileOutputStream( "TimeCardList.ser" );
               ObjectOutputStream oStream = new ObjectOutputStream( fStream )
@@ -32,7 +34,7 @@ public class InitLists implements Serializable{
     }
 
     private static void serializeClientLIst(List<ClientAccount> clientList){
-        try ( FileOutputStream fStream = new FileOutputStream( "ClientList.ser" );
+        try ( FileOutputStream fStream = new FileOutputStream( CLIENT_FILE );
               ObjectOutputStream oStream = new ObjectOutputStream( fStream )
         )
         {
