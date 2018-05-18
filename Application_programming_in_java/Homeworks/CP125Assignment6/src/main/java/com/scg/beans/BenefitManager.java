@@ -7,9 +7,10 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
 /**
+ * An object of this type is used as a callback to process changes
+ * in a consultant's medical and dental benefits
  * @author jcrowley
  */
-
 public class BenefitManager implements PropertyChangeListener, BenefitListener {
 
     private static final Logger LOGGER =

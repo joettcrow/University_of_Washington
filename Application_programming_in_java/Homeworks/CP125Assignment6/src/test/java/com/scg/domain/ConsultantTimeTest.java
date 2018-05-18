@@ -134,6 +134,12 @@ public class ConsultantTimeTest {
     }
 
     @Test
+    public void notEqualsNullTest(){
+        ConsultantTime consultantTime2 = null;
+        assert !consultantTime.equals(consultantTime2);
+    }
+
+    @Test
     public void notEqualsDiffTest(){
         ConsultantTime consultantTime2 = new ConsultantTime(
                 date,

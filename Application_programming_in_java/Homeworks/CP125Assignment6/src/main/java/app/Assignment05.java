@@ -71,7 +71,7 @@ public class Assignment05 {
     /**
      * Main method that deserializes TimeCardList.ser and ClientList.ser
      * Then creates invoices for each company.
-     * @param args
+     * @param args args for reasons
      */
     public static void main(String[] args) {
 

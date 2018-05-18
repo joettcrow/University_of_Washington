@@ -189,11 +189,10 @@ public class StaffConsultant extends Consultant {
             {
                 try
                 {
+                    this.setPayRate((Double) oldVal);
                     listener.vetoableChange( revEvent );
                 }
-                catch ( PropertyVetoException exc2 )
-                {
-                    // ignore
+                catch ( PropertyVetoException exc2 ){// ignore
                 }
             }
             throw exc;

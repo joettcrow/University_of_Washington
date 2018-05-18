@@ -98,7 +98,7 @@ public class HumanResourceManager {
      * @param consultant The consultant whose pay rate is to be changed.
      * @param newPayRate The proposed new pay rate.
      */
-    public void adjustPayRate( StaffConsultant consultant, int newPayRate ){
+    public void adjustPayRate(StaffConsultant consultant, double newPayRate ){
         String message = "Pay rate change for: " + consultant.getName().toString() + "; ";
         try {
             consultant.setPayRate(newPayRate);
@@ -203,8 +203,5 @@ public class HumanResourceManager {
     public void removeBenefitListener( BenefitListener listener ){
         benefitListeners.remove(listener);
     }
-
-
-
 
 }

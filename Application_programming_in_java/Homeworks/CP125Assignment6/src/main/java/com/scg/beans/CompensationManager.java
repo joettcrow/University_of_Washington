@@ -23,7 +23,7 @@ public class CompensationManager implements PropertyChangeListener, VetoableChan
      */
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
-        LOGGER.info("Changed Salary from: " + evt.getOldValue() + "to: " + evt.getNewValue());
+        LOGGER.info("Changed Salary from: " + evt.getOldValue() + " to: " + evt.getNewValue());
     }
 
     /**

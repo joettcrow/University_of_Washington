@@ -135,22 +135,16 @@ public class ConsultantTime implements Serializable{
      */
     @Override
     public boolean equals(Object o) {
-        boolean eq;
-        if (o == null ) {
-            eq = false;
-        }
-        else if (getClass() != o.getClass()) {
-            eq = false;
-        }
+        if (o == null) { return false; }
+        else if (getClass() != o.getClass()) { return false; }
         if (this == o) {
-            eq = true;
+            return true;
         }
         ConsultantTime that = (ConsultantTime) o;
-        eq = Objects.equals(date, that.date) &&
+        return Objects.equals(date, that.date) &&
                 Objects.equals(account, that.account) &&
                 Objects.equals(hours, that.hours) &&
                 skill == that.skill;
-        return eq;
     }
 
     /**
