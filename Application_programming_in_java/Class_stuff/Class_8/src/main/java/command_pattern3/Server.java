@@ -51,13 +51,12 @@ public class Server
     private void process( Socket client )
         throws IOException, ClassNotFoundException
     {
-        InputStream         iStream     = client.getInputStream();
-        ObjectInputStream   objStream   = new ObjectInputStream( iStream );
-        OutputStream        oStream     = client.getOutputStream();
-        PrintWriter         writer      = new PrintWriter( oStream, true );
+        InputStream iStream = client.getInputStream();
+        ObjectInputStream objStream = new ObjectInputStream( iStream );
+        OutputStream oStream = client.getOutputStream();
+        PrintWriter writer = new PrintWriter( oStream, true );
         
-        AbstractCommand     command     = 
-            (AbstractCommand)objStream.readObject();
+        AbstractCommand command = (AbstractCommand)objStream.readObject();
         command.setReceiver( receiver );
         command.execute();
         writer.println( "ACK" );

@@ -1,0 +1,62 @@
+package edu.uweo.java2.assignment8;
+
+import org.junit.Test;
+
+import java.math.BigDecimal;
+
+import static org.junit.Assert.*;
+
+/**
+ * @author jcrowley
+ */
+
+public class AddCommandTest {
+
+    @Test
+    public void defaultConstructorTest() {
+        AddCommand addCommand = new AddCommand();
+        assertEquals(BigDecimal.ZERO,addCommand.getOperand1());
+        assertEquals(BigDecimal.ZERO,addCommand.getOperand2());
+        assertNull(addCommand.getReceiver());
+        assertNull(addCommand.getResult());
+    }
+
+    @Test
+    public void parameterBigConstructorTest() {
+        AddCommand addCommand = new AddCommand(BigDecimal.ONE,BigDecimal.TEN);
+        assertEquals(BigDecimal.ONE,addCommand.getOperand1());
+        assertEquals(BigDecimal.TEN,addCommand.getOperand2());
+        assertNull(addCommand.getReceiver());
+        assertNull(addCommand.getResult());
+    }
+
+    @Test
+    public void parameterDoubleConstructorTest() {
+        AddCommand addCommand = new AddCommand(1.0,10.0);
+        assertEquals(BigDecimal.valueOf(1.0),addCommand.getOperand1());
+        assertEquals(BigDecimal.valueOf(10.0),addCommand.getOperand2());
+        assertNull(addCommand.getReceiver());
+        assertNull(addCommand.getResult());
+    }
+
+    @Test
+    public void executeTest() {
+        AddCommand addCommand = new AddCommand(BigDecimal.ONE,BigDecimal.TEN);
+        Receiver receiver = new Receiver(addCommand);
+        addCommand.setReceiver(receiver);
+        addCommand.execute();
+        assertEquals(BigDecimal.valueOf(11), addCommand.getResult());
+
+    }
+
+    @Test
+    public void toStringTest() {
+        AddCommand addCommand = new AddCommand(BigDecimal.ONE,BigDecimal.TEN);
+        Receiver receiver = new Receiver(addCommand);
+        addCommand.setReceiver(receiver);
+        addCommand.execute();
+        String addCommandString = "1 + 10 = 11";
+        assertEquals(addCommandString, addCommand.toString());
+
+    }
+}
