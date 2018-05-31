@@ -9,6 +9,8 @@ import java.math.BigDecimal;
  */
 public class MulCommand extends AbstractCommand {
 
+    private static final long serialVersionUID = 115087549446046168L;
+
     /**
      * Constructor.
      * Following invocation, the operand1 and operand2 properties will be set to 0,
@@ -59,10 +61,10 @@ public class MulCommand extends AbstractCommand {
      */
     @Override
     public String toString() {
-        return getOperand1().toString() +
+        return getOperand1()+
                 " * " +
-                getOperand2().toString() +
+                getOperand2()+
                 " = " +
-                getResult().toString();
+                getResult();
     }
 }

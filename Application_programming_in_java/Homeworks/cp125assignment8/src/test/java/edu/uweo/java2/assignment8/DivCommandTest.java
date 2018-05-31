@@ -11,6 +11,7 @@ import static org.junit.Assert.*;
  */
 
 public class DivCommandTest {
+    private final Receiver receiver = new Receiver();
 
     @Test
     public void defaultConstructorTest() {
@@ -42,7 +43,6 @@ public class DivCommandTest {
     @Test
     public void executeTest() {
         DivCommand divCommand = new DivCommand(BigDecimal.TEN,BigDecimal.ONE);
-        Receiver receiver = new Receiver(divCommand);
         divCommand.setReceiver(receiver);
         divCommand.execute();
         assertEquals(BigDecimal.valueOf(10), divCommand.getResult());
@@ -52,7 +52,6 @@ public class DivCommandTest {
     @Test
     public void toStringTest() {
         DivCommand divCommand = new DivCommand(BigDecimal.TEN,BigDecimal.ONE);
-        Receiver receiver = new Receiver(divCommand);
         divCommand.setReceiver(receiver);
         divCommand.execute();
         String divCommandString = "10 / 1 = 10";

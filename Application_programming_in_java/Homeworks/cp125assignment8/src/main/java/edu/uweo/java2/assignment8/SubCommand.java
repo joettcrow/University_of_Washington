@@ -8,6 +8,8 @@ import java.math.BigDecimal;
  * @author jcrowley
  */
 public class SubCommand extends AbstractCommand {
+    private static final long serialVersionUID = 1130740805334352540L;
+
     /**
      * Constructor.
      * Following invocation, the operand1 and operand2 properties will be set to 0,
@@ -58,10 +60,10 @@ public class SubCommand extends AbstractCommand {
      */
     @Override
     public String toString() {
-        return getOperand1().toString() +
+        return getOperand1() +
                 " - " +
-                getOperand2().toString() +
+                getOperand2() +
                 " = " +
-                getResult().toString();
+                getResult();
     }
 }

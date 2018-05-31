@@ -11,6 +11,7 @@ import static org.junit.Assert.*;
  */
 
 public class SubCommandTest {
+    private final Receiver receiver = new Receiver();
 
     @Test
     public void defaultConstructorTest() {
@@ -42,7 +43,6 @@ public class SubCommandTest {
     @Test
     public void executeTest() {
         SubCommand subCommand = new SubCommand(BigDecimal.ONE,BigDecimal.TEN);
-        Receiver receiver = new Receiver(subCommand);
         subCommand.setReceiver(receiver);
         subCommand.execute();
         assertEquals(BigDecimal.valueOf(-9), subCommand.getResult());
@@ -52,7 +52,6 @@ public class SubCommandTest {
     @Test
     public void toStringTest() {
         SubCommand subCommand = new SubCommand(BigDecimal.ONE,BigDecimal.TEN);
-        Receiver receiver = new Receiver(subCommand);
         subCommand.setReceiver(receiver);
         subCommand.execute();
         String subCommandString = "1 - 10 = -9";

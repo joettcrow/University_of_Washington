@@ -1,13 +1,14 @@
 package edu.uweo.java2.assignment8;
 
 import java.math.BigDecimal;
-import java.math.BigInteger;
 
 /**
  * The second operand is added to the first, and the result is stored in the command's result field.
  * @author jcrowley
  */
 public class AddCommand extends AbstractCommand {
+
+    private static final long serialVersionUID = 6993758086185839083L;
 
     /**
      * Constructor.
@@ -60,10 +61,10 @@ public class AddCommand extends AbstractCommand {
      */
     @Override
     public String toString() {
-        return getOperand1().toString() +
+        return getOperand1()+
                 " + " +
-                getOperand2().toString() +
+                getOperand2()+
                 " = " +
-                getResult().toString();
+                getResult();
     }
 }

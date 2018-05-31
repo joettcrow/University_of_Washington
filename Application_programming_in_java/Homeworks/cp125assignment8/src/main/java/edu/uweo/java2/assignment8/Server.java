@@ -18,17 +18,28 @@ import java.net.Socket;
  * Loop (wait for the next client to connect).
  * @author jcrowley
  */
-public class Server implements Runnable {
-//    private final Receiver receiver;
+public class Server {
+    private final Receiver receiver = new Receiver();
     private final int port;
 
     private static final Logger log =
             LoggerFactory.getLogger( Server.class );
 
+    /**
+     * Constructor. Determines the port on which to connect to the server.
+     * Note that a connection is not established at this time;
+     * all this method does is establish the port number.
+     * @param port The port the client must use to connect to the server.
+     */
     public Server( int port ){
         this.port = port;
     }
 
+    /**
+     * This method starts the server.
+     * @throws IOException if there's an IO exception
+     * @throws ClassNotFoundException if the class is not found
+     */
     public void execute()
             throws IOException, ClassNotFoundException
     {
@@ -38,16 +49,22 @@ public class Server implements Runnable {
         }
     }
 
+    /**
+     * This method Executes.
+     * @param listener the listener to listen to
+     * @throws IOException if there's an IO exception
+     * @throws ClassNotFoundException if the class is not found
+     */
     private void execute( ServerSocket listener )
             throws IOException, ClassNotFoundException
     {
         while ( true )
         {
-            log.trace( "Listening for clients" );
+            log.info( "Listening for clients" );
 
             try ( Socket client = listener.accept() )
             {
-                log.trace( "connection accepted" );
+                log.info( "connection accepted" );
                 process( client );
             }
         }
@@ -59,36 +76,38 @@ public class Server implements Runnable {
         InputStream iStream = client.getInputStream();
         ObjectInputStream objStream = new ObjectInputStream( iStream );
         OutputStream oStream = client.getOutputStream();
-        PrintWriter writer = new PrintWriter( oStream, true );
 
-        AbstractCommand command = (AbstractCommand)objStream.readObject();
-        Receiver receiver = new Receiver(command);
-        command.setReceiver( receiver );
-        command.execute();
-        writer.println( "ACK" );
+        ObjectOutputStream oWriter = new ObjectOutputStream(oStream);
+        Object obj = objStream.readObject();
+
+        if ( !(obj instanceof AbstractCommand) ){
+            oWriter.writeObject( new NAKCommand() );
+        }
+        else {
+            AbstractCommand command = (AbstractCommand) obj;
+            command.setReceiver(receiver);
+            command.execute();
+            oWriter.writeObject(command);
+        }
     }
 
     /**
-     * When an object implementing interface <code>Runnable</code> is used
-     * to create a thread, starting the thread causes the object's
-     * <code>run</code> method to be called in that separately executing
-     * thread.
-     * <p>
-     * The general contract of the method <code>run</code> is that it may
-     * take any action whatsoever.
-     *
-     * @see Thread#run()
+     * Main method, it does things.
+     * @param args the args to pass
      */
-    @Override
-    public void run() {
+    public static void main(String[] args) {
+        log.info("Creating Server");
+        Server server = new Server(4885);
         try {
-            this.execute();
+            log.info("Running Server");
+            server.execute();
         } catch (IOException e) {
-            log.warn("IO Exception", e);
+            log.warn("IO Exception because reasons", e);
 
         } catch (ClassNotFoundException e) {
-            log.warn("Class Not Found", e);
+            log.warn("Class Not Found Exception because reasons", e);
 
         }
+
     }
 }

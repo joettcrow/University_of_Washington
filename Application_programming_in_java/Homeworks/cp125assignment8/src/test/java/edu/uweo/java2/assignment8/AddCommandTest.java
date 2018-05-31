@@ -11,6 +11,7 @@ import static org.junit.Assert.*;
  */
 
 public class AddCommandTest {
+    private final Receiver receiver = new Receiver();
 
     @Test
     public void defaultConstructorTest() {
@@ -42,7 +43,6 @@ public class AddCommandTest {
     @Test
     public void executeTest() {
         AddCommand addCommand = new AddCommand(BigDecimal.ONE,BigDecimal.TEN);
-        Receiver receiver = new Receiver(addCommand);
         addCommand.setReceiver(receiver);
         addCommand.execute();
         assertEquals(BigDecimal.valueOf(11), addCommand.getResult());
@@ -52,7 +52,6 @@ public class AddCommandTest {
     @Test
     public void toStringTest() {
         AddCommand addCommand = new AddCommand(BigDecimal.ONE,BigDecimal.TEN);
-        Receiver receiver = new Receiver(addCommand);
         addCommand.setReceiver(receiver);
         addCommand.execute();
         String addCommandString = "1 + 10 = 11";

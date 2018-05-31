@@ -3,7 +3,6 @@ package app;
 import edu.uweo.java2.assignment8.*;
 import edu.uweo.java2.assignment8.client.Client;
 
-import java.io.IOException;
 import java.math.BigDecimal;
 
 /**
@@ -11,7 +10,6 @@ import java.math.BigDecimal;
  * @author jcrowley
  */
 public class ClientDriver {
-
     private final static BigDecimal add1 = BigDecimal.valueOf(0.5);
     private final static BigDecimal add2 = BigDecimal.valueOf(-0.7);
     private final static BigDecimal sub1 = BigDecimal.valueOf(0.5);
@@ -25,47 +23,15 @@ public class ClientDriver {
     private final static MulCommand mulCommand = new MulCommand(mul1,mul2);
     private final static DivCommand divCommand = new DivCommand(div1,div2);
 
+    /**
+     * Main method for the driver
+     * @param args can be empty
+     */
     public static void main(String[] args) {
         Client client = new Client(4885);
-//        Server server = new Server(4885);
-
-
-
-        while ( true )
-        {
-            try
-            {
-                Thread thread = new Thread(new Server(4885));
-                thread.start();
-//                server.execute();
-                client.execute(addCommand);
-                pause( 125 );
-//                client.execute(subCommand);
-//                pause( 125 );
-//                client.execute(mulCommand);
-//                pause( 125 );
-//                client.execute(divCommand);
-//                pause( 125 );
-            }
-            catch ( IOException exc )
-            {
-                exc.printStackTrace();
-                System.exit( 1 );
-            }
-        }
+        client.execute(addCommand);
+        client.execute(subCommand);
+        client.execute(mulCommand);
+        client.execute(divCommand);
     }
-
-    private static void pause( long millis )
-    {
-        try
-        {
-            Thread.sleep( millis );
-        }
-        catch ( InterruptedException exc )
-        {
-        }
-    }
-
-
-
 }

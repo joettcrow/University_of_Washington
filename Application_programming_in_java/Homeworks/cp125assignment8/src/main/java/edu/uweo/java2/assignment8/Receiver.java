@@ -1,22 +1,15 @@
 package edu.uweo.java2.assignment8;
 
-import java.math.BigDecimal;
+
+import java.io.Serializable;
 
 /**
  * This class will encapsulate a receiver object, as described by the command pattern.
  * @author jcrowley
  */
-public class Receiver {
+public class Receiver implements Serializable {
 
-    private final AbstractCommand command;
-
-    /**
-     * Constructor
-     * @param command the command to run
-     */
-    public Receiver (AbstractCommand command){
-        this.command = command;
-    }
+    private static final long serialVersionUID = 4319989422249122646L;
 
     /**
      * The second operand is added to the first,
@@ -57,11 +50,5 @@ public class Receiver {
     {
         command.setResult(command.getOperand1().divide(command.getOperand2()));
     }
-
-
-//    public void action( NAKCommand command )
-//    {
-//        command.setResult(command);
-//    }
 
 }

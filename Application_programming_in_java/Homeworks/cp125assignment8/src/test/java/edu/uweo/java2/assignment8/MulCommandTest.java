@@ -11,6 +11,7 @@ import static org.junit.Assert.*;
  */
 
 public class MulCommandTest {
+    private final Receiver receiver = new Receiver();
 
     @Test
     public void defaultConstructorTest() {
@@ -42,7 +43,6 @@ public class MulCommandTest {
     @Test
     public void executeTest() {
         MulCommand mulCommand = new MulCommand(BigDecimal.ONE,BigDecimal.TEN);
-        Receiver receiver = new Receiver(mulCommand);
         mulCommand.setReceiver(receiver);
         mulCommand.execute();
         assertEquals(BigDecimal.valueOf(10), mulCommand.getResult());
@@ -52,7 +52,6 @@ public class MulCommandTest {
     @Test
     public void toStringTest() {
         MulCommand mulCommand = new MulCommand(BigDecimal.ONE,BigDecimal.TEN);
-        Receiver receiver = new Receiver(mulCommand);
         mulCommand.setReceiver(receiver);
         mulCommand.execute();
         String mulCommandString = "1 * 10 = 10";

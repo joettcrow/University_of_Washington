@@ -5,6 +5,7 @@ import edu.uweo.java2.assignment8.AbstractCommand;
 import java.io.*;
 import java.net.InetAddress;
 import java.net.Socket;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -13,8 +14,7 @@ import org.slf4j.LoggerFactory;
  * All commands will be implemented using the command pattern.
  * @author jcrowley
  */
-public class
-Client {
+public class Client {
     private static final Logger log =
             LoggerFactory.getLogger( Client.class );
     private int port;
@@ -30,46 +30,37 @@ Client {
         this.port = port;
     }
 
-    public void execute( AbstractCommand command ) throws IOException {
+    /**
+     * This method forwards a given command to the server for execution. It will:
+     *
+     * Connect to the server on the port established by the constructor;
+     * Send a single command object to the server implemented as required by the Command Pattern;
+     * Wait for the server's response;
+     * Log the server's response; and
+     * Disconnect from the server
+     * @param command The given command.
+     */
+    public void execute( AbstractCommand command ) {
         log.info( "Opening connection" );
-        try ( Socket socket = new Socket(InetAddress.getLocalHost(), port) )
+        try ( Socket socket = new Socket(InetAddress.getLoopbackAddress(), port) )
         {
             execute(socket,command);
         } catch (Exception e){e.printStackTrace();}
+        log.info("Closing Connection");
 
     }
 
     private void execute(Socket socket, AbstractCommand command)
-            throws IOException {
-        InputStream iStream = socket.getInputStream();
-        InputStreamReader reader = new InputStreamReader(iStream);
-        BufferedReader bReader = new BufferedReader(reader);
+            throws IOException, ClassNotFoundException {
         OutputStream oStream = socket.getOutputStream();
         ObjectOutputStream writer = new ObjectOutputStream(oStream);
+        writer.writeObject( command );
 
-        socket.connect(socket.getLocalSocketAddress());
-        command.execute();
-        System.out.println("Command is: " + command.toString());
-
-        // wait for ACK from server
-        String line = bReader.readLine();
-        if (!line.equalsIgnoreCase("ACK"))
-            throw new Error("invalid acknowledgement from server");
-        log.info( command.toString() );
-        writer.writeObject(command);
-
-//        pause(250);
+        InputStream iStream = socket.getInputStream();
+        ObjectInputStream objStream = new ObjectInputStream( iStream );
+        Object obj = objStream.readObject();
+        log.info( obj.toString() );
     }
-//
-//    private static void pause( long millis )
-//    {
-//        try
-//        {
-//            Thread.sleep( millis );
-//        }
-//        catch ( InterruptedException exc )
-//        {
-//        }
-//    }
+
 }
 
