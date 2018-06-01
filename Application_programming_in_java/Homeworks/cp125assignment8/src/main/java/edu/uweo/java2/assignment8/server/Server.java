@@ -1,5 +1,9 @@
-package edu.uweo.java2.assignment8;
+package edu.uweo.java2.assignment8.server;
 
+import edu.uweo.java2.assignment8.AbstractCommand;
+import edu.uweo.java2.assignment8.NAKCommand;
+import edu.uweo.java2.assignment8.Receiver;
+import edu.uweo.java2.assignment8.ShutdownCommand;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -21,6 +25,7 @@ import java.net.Socket;
 public class Server {
     private final Receiver receiver = new Receiver();
     private final int port;
+    private boolean running = true;
 
     private static final Logger log =
             LoggerFactory.getLogger( Server.class );
@@ -58,10 +63,15 @@ public class Server {
     private void execute( ServerSocket listener )
             throws IOException, ClassNotFoundException
     {
-        while ( true )
+        class shutdownReceiver extends Receiver{
+            public void action( ShutdownCommand command )
+            {
+                running = false;
+            }
+        }
+        while ( running )
         {
             log.info( "Listening for clients" );
-
             try ( Socket client = listener.accept() )
             {
                 log.info( "connection accepted" );
@@ -96,10 +106,10 @@ public class Server {
      * @param args the args to pass
      */
     public static void main(String[] args) {
-        log.info("Creating Server");
+        log.info("Creating server");
         Server server = new Server(4885);
         try {
-            log.info("Running Server");
+            log.info("Running server");
             server.execute();
         } catch (IOException e) {
             log.warn("IO Exception because reasons", e);
