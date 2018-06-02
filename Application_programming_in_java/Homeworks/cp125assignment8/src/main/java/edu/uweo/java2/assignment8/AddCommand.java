@@ -3,7 +3,8 @@ package edu.uweo.java2.assignment8;
 import java.math.BigDecimal;
 
 /**
- * The second operand is added to the first, and the result is stored in the command's result field.
+ * The second operand is added to the first,
+ * and the result is stored in the command's result field.
  * @author jcrowley
  */
 public class AddCommand extends AbstractCommand {
@@ -57,7 +58,7 @@ public class AddCommand extends AbstractCommand {
 
     /**
      * Overrides the toString to return operand1 operation operand2 = result
-     * @returnm operand1 operation operand2 = result
+     * @return operand1 operation operand2 = result
      */
     @Override
     public String toString() {

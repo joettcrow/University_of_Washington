@@ -57,7 +57,7 @@ public class MulCommand extends AbstractCommand {
 
     /**
      * Overrides the toString to return operand1 operation operand2 = result
-     * @returnm operand1 operation operand2 = result
+     * @return operand1 operation operand2 = result
      */
     @Override
     public String toString() {
