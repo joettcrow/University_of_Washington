@@ -20,6 +20,7 @@ public class SubCommand extends AbstractCommand {
     }
 
     /**
+     /**
      * Constructor.
      * Sets the operand1 and operand2 properties to the given parameter values;
      * sets the receiver and result properties to null.
@@ -27,10 +28,16 @@ public class SubCommand extends AbstractCommand {
      *
      * @param operand1 the first operand value
      * @param operand2 the second operand value
+     * @param workMillisMin the min amount to work
+     * @param workMillisMax the max amount to work
      * @throws NullPointerException if either operand is null
      */
-    public SubCommand(BigDecimal operand1, BigDecimal operand2) throws NullPointerException {
-        super(operand1, operand2);
+    public SubCommand(
+            BigDecimal operand1,
+            BigDecimal operand2,
+            int workMillisMin,
+            int workMillisMax) throws NullPointerException {
+        super(operand1, operand2, workMillisMin, workMillisMax);
     }
 
     /**
@@ -41,10 +48,20 @@ public class SubCommand extends AbstractCommand {
      *
      * @param operand1 the first operand value
      * @param operand2 the second operand value
+     * @param workMillisMin the min amount to work
+     * @param workMillisMax the max amount to work
      * @throws NullPointerException if either operand is null
      */
-    public SubCommand(double operand1, double operand2) throws NullPointerException{
-        super(BigDecimal.valueOf(operand1),BigDecimal.valueOf(operand2));
+    public SubCommand(
+            double operand1,
+            double operand2,
+            int workMillisMin,
+            int workMillisMax) throws NullPointerException {
+        super(
+                BigDecimal.valueOf(operand1),
+                BigDecimal.valueOf(operand2),
+                workMillisMin,
+                workMillisMax);
     }
 
     /**

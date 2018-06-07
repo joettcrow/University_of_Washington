@@ -24,7 +24,11 @@ public class AddCommandTest {
 
     @Test
     public void parameterBigConstructorTest() {
-        AddCommand addCommand = new AddCommand(BigDecimal.ONE,BigDecimal.TEN);
+        AddCommand addCommand = new AddCommand(
+                BigDecimal.ONE,
+                BigDecimal.TEN,
+                0,
+                1);
         assertEquals(BigDecimal.ONE,addCommand.getOperand1());
         assertEquals(BigDecimal.TEN,addCommand.getOperand2());
         assertNull(addCommand.getReceiver());
@@ -33,7 +37,11 @@ public class AddCommandTest {
 
     @Test
     public void parameterDoubleConstructorTest() {
-        AddCommand addCommand = new AddCommand(1.0,10.0);
+        AddCommand addCommand = new AddCommand(
+                1.0,
+                10.0,
+                0,
+                1);
         assertEquals(BigDecimal.valueOf(1.0),addCommand.getOperand1());
         assertEquals(BigDecimal.valueOf(10.0),addCommand.getOperand2());
         assertNull(addCommand.getReceiver());
@@ -42,7 +50,11 @@ public class AddCommandTest {
 
     @Test
     public void executeTest() {
-        AddCommand addCommand = new AddCommand(BigDecimal.ONE,BigDecimal.TEN);
+        AddCommand addCommand = new AddCommand(
+                BigDecimal.ONE,
+                BigDecimal.TEN,
+                0,
+                1);
         addCommand.setReceiver(receiver);
         addCommand.execute();
         assertEquals(BigDecimal.valueOf(11), addCommand.getResult());
@@ -51,7 +63,11 @@ public class AddCommandTest {
 
     @Test
     public void toStringTest() {
-        AddCommand addCommand = new AddCommand(BigDecimal.ONE,BigDecimal.TEN);
+        AddCommand addCommand = new AddCommand(
+                BigDecimal.ONE,
+                BigDecimal.TEN,
+                0,
+                1);
         addCommand.setReceiver(receiver);
         addCommand.execute();
         String addCommandString = "1 + 10 = 11";

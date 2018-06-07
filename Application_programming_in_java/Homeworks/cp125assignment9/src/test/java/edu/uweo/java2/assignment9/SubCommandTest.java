@@ -24,7 +24,11 @@ public class SubCommandTest {
 
     @Test
     public void parameterBigConstructorTest() {
-        SubCommand subCommand = new SubCommand(BigDecimal.ONE,BigDecimal.TEN);
+        SubCommand subCommand = new SubCommand(
+                BigDecimal.ONE,
+                BigDecimal.TEN,
+                0,
+                1);
         assertEquals(BigDecimal.ONE,subCommand.getOperand1());
         assertEquals(BigDecimal.TEN,subCommand.getOperand2());
         assertNull(subCommand.getReceiver());
@@ -33,7 +37,11 @@ public class SubCommandTest {
 
     @Test
     public void parameterDoubleConstructorTest() {
-        SubCommand subCommand = new SubCommand(1.0,10.0);
+        SubCommand subCommand = new SubCommand(
+                1.0,
+                10.0,
+                0,
+                1);
         assertEquals(BigDecimal.valueOf(1.0),subCommand.getOperand1());
         assertEquals(BigDecimal.valueOf(10.0),subCommand.getOperand2());
         assertNull(subCommand.getReceiver());
@@ -42,7 +50,11 @@ public class SubCommandTest {
 
     @Test
     public void executeTest() {
-        SubCommand subCommand = new SubCommand(BigDecimal.ONE,BigDecimal.TEN);
+        SubCommand subCommand = new SubCommand(
+                BigDecimal.ONE,
+                BigDecimal.TEN,
+                0,
+                1);
         subCommand.setReceiver(receiver);
         subCommand.execute();
         assertEquals(BigDecimal.valueOf(-9), subCommand.getResult());
@@ -51,7 +63,11 @@ public class SubCommandTest {
 
     @Test
     public void toStringTest() {
-        SubCommand subCommand = new SubCommand(BigDecimal.ONE,BigDecimal.TEN);
+        SubCommand subCommand = new SubCommand(
+                BigDecimal.ONE,
+                BigDecimal.TEN,
+                0,
+                1);
         subCommand.setReceiver(receiver);
         subCommand.execute();
         String subCommandString = "1 - 10 = -9";

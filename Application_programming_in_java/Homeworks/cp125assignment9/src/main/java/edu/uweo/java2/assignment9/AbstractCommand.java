@@ -16,6 +16,8 @@ public abstract class AbstractCommand implements Serializable {
     private BigDecimal operand1;
     private BigDecimal operand2;
     private BigDecimal result;
+    private int workMillisMin;
+    private int workMillisMax;
 
     /**
      * Constructor.
@@ -25,6 +27,8 @@ public abstract class AbstractCommand implements Serializable {
     public AbstractCommand(){
         this.operand1 = BigDecimal.valueOf(0);
         this.operand2 = BigDecimal.valueOf(0);
+        this.workMillisMax = 1;
+        this.workMillisMin = 0;
         this.receiver = null;
         this.result = null;
     }
@@ -36,9 +40,15 @@ public abstract class AbstractCommand implements Serializable {
      * Throws NullPointerException if operand1 or operand2 is null.
      * @param operand1 the first operand value
      * @param operand2 the second operand value
+     * @param workMillisMin the min amount to work
+     * @param workMillisMax the max amount to work
      * @throws NullPointerException if either operand is null
      */
-    public AbstractCommand(BigDecimal operand1, BigDecimal operand2) throws NullPointerException{
+    public AbstractCommand(
+            BigDecimal operand1,
+            BigDecimal operand2,
+            int workMillisMin,
+            int workMillisMax) throws NullPointerException{
         if (operand1 == null){
             throw new NullPointerException("Operand1 cannot be null");
         }
@@ -47,6 +57,8 @@ public abstract class AbstractCommand implements Serializable {
         }
         this.operand1 = operand1;
         this.operand2 = operand2;
+        this.workMillisMin = workMillisMin;
+        this.workMillisMax = workMillisMax;
         this.receiver = null;
         this.result = null;
     }
@@ -126,5 +138,41 @@ public abstract class AbstractCommand implements Serializable {
      */
     public void setOperand2(BigDecimal operand2) {
         this.operand2 = operand2;
+    }
+
+    /**
+     * Gets workMillisMax.
+     *
+     * @return Value of workMillisMax.
+     */
+    public int getWorkMillisMax() {
+        return workMillisMax;
+    }
+
+    /**
+     * Sets new workMillisMax.
+     *
+     * @param workMillisMax New value of workMillisMax.
+     */
+    public void setWorkMillisMax(int workMillisMax) {
+        this.workMillisMax = workMillisMax;
+    }
+
+    /**
+     * Gets workMillisMin.
+     *
+     * @return Value of workMillisMin.
+     */
+    public int getWorkMillisMin() {
+        return workMillisMin;
+    }
+
+    /**
+     * Sets new workMillisMin.
+     *
+     * @param workMillisMin New value of workMillisMin.
+     */
+    public void setWorkMillisMin(int workMillisMin) {
+        this.workMillisMin = workMillisMin;
     }
 }

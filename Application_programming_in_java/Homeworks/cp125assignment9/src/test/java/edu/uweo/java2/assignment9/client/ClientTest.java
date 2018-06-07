@@ -26,10 +26,18 @@ public class ClientTest implements Runnable {
     private final static BigDecimal mul2 = BigDecimal.valueOf(2.0);
     private final static BigDecimal div1 = BigDecimal.valueOf(0.9);
     private final static BigDecimal div2 = BigDecimal.valueOf(3.0);
-    private final static AddCommand addCommand = new AddCommand(add1,add2);
-    private final static SubCommand subCommand = new SubCommand(sub1,sub2);
-    private final static MulCommand mulCommand = new MulCommand(mul1,mul2);
-    private final static DivCommand divCommand = new DivCommand(div1,div2);
+    private final static int addMin = 250;
+    private final static int addMax = 1000;
+    private final static int subMin = 125;
+    private final static int subMax = 500;
+    private final static int mulMin = 100;
+    private final static int mulMax = 600;
+    private final static int divMin = 250;
+    private final static int dibMax = 500;
+    private final static AddCommand addCommand = new AddCommand(add1,add2,addMin,addMax);
+    private final static SubCommand subCommand = new SubCommand(sub1,sub2,subMin,subMax);
+    private final static MulCommand mulCommand = new MulCommand(mul1,mul2,mulMin,mulMax);
+    private final static DivCommand divCommand = new DivCommand(div1,div2,divMin,dibMax);
     private final static ShutdownCommand shutdownCommand = new ShutdownCommand();
 
     @Test

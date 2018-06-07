@@ -15,7 +15,11 @@ public class AbstractCommandTest {
     @Test
     public void abstractConstructorFirstNullTest() {
         try {
-            AddCommand command = new AddCommand(null, BigDecimal.ONE);
+            AddCommand command = new AddCommand(
+                    null,
+                    BigDecimal.ONE,
+                    0,
+                    1);
         } catch (NullPointerException exp){
             assertEquals("Operand1 cannot be null",exp.getMessage());
         }
@@ -24,7 +28,11 @@ public class AbstractCommandTest {
     @Test
     public void abstractConstructorSecondNullTest() {
         try {
-            AddCommand command = new AddCommand(BigDecimal.ONE, null);
+            AddCommand command = new AddCommand(
+                    BigDecimal.ONE,
+                    null,
+                    0,
+                    1);
         } catch (NullPointerException exp){
             assertEquals("Operand2 cannot be null",exp.getMessage());
         }
@@ -44,5 +52,19 @@ public class AbstractCommandTest {
         command.setOperand2(BigDecimal.ONE);
         assertEquals(BigDecimal.ONE,command.getOperand2());
         assertEquals(BigDecimal.ZERO,command.getOperand1());
+    }
+
+    @Test
+    public void setWorkMillisMinTest() {
+        AddCommand command = new AddCommand();
+        command.setWorkMillisMin(1000);
+        assertEquals(1000,command.getWorkMillisMin());
+    }
+
+    @Test
+    public void setWorkMillisMaxTest() {
+        AddCommand command = new AddCommand();
+        command.setWorkMillisMax(10000);
+        assertEquals(10000,command.getWorkMillisMax());
     }
 }

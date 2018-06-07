@@ -24,7 +24,11 @@ public class DivCommandTest {
 
     @Test
     public void parameterBigConstructorTest() {
-        DivCommand divCommand = new DivCommand(BigDecimal.ONE,BigDecimal.TEN);
+        DivCommand divCommand = new DivCommand(
+                BigDecimal.ONE,
+                BigDecimal.TEN,
+                0,
+                1);
         assertEquals(BigDecimal.ONE,divCommand.getOperand1());
         assertEquals(BigDecimal.TEN,divCommand.getOperand2());
         assertNull(divCommand.getReceiver());
@@ -33,7 +37,11 @@ public class DivCommandTest {
 
     @Test
     public void parameterDoubleConstructorTest() {
-        DivCommand divCommand = new DivCommand(1.0,10.0);
+        DivCommand divCommand = new DivCommand(
+                1.0,
+                10.0,
+                0,
+                1);
         assertEquals(BigDecimal.valueOf(1.0),divCommand.getOperand1());
         assertEquals(BigDecimal.valueOf(10.0),divCommand.getOperand2());
         assertNull(divCommand.getReceiver());
@@ -42,16 +50,23 @@ public class DivCommandTest {
 
     @Test
     public void executeTest() {
-        DivCommand divCommand = new DivCommand(BigDecimal.TEN,BigDecimal.ONE);
+        DivCommand divCommand = new DivCommand(
+                BigDecimal.TEN,
+                BigDecimal.ONE,
+                0,
+                1);
         divCommand.setReceiver(receiver);
         divCommand.execute();
         assertEquals(BigDecimal.valueOf(10), divCommand.getResult());
-
     }
 
     @Test
     public void toStringTest() {
-        DivCommand divCommand = new DivCommand(BigDecimal.TEN,BigDecimal.ONE);
+        DivCommand divCommand = new DivCommand(
+                BigDecimal.TEN,
+                BigDecimal.ONE,
+                0,
+                1);
         divCommand.setReceiver(receiver);
         divCommand.execute();
         String divCommandString = "10 / 1 = 10";

@@ -18,6 +18,9 @@ public class Receiver implements Serializable {
      */
     public void action( AddCommand command )
     {
+        this.randomPause(
+                command.getWorkMillisMin(),
+                command.getWorkMillisMax());
         command.setResult(command.getOperand1().add(command.getOperand2()));
     }
 
@@ -28,6 +31,9 @@ public class Receiver implements Serializable {
      */
     public void action( SubCommand command )
     {
+        this.randomPause(
+                command.getWorkMillisMin(),
+                command.getWorkMillisMax());
         command.setResult(command.getOperand1().subtract(command.getOperand2()));
     }
 
@@ -38,6 +44,9 @@ public class Receiver implements Serializable {
      */
     public void action( MulCommand command )
     {
+        this.randomPause(
+                command.getWorkMillisMin(),
+                command.getWorkMillisMax());
         command.setResult(command.getOperand1().multiply(command.getOperand2()));
     }
 
@@ -48,7 +57,31 @@ public class Receiver implements Serializable {
      */
     public void action( DivCommand command )
     {
+        this.randomPause(
+                command.getWorkMillisMin(),
+                command.getWorkMillisMax());
         command.setResult(command.getOperand1().divide(command.getOperand2()));
     }
 
+    /**
+     * Private method for pausing a random amount in a range
+     * @param min the min value to pause for
+     * @param max the max value to pause for
+     */
+    private void randomPause(int min, int max)
+    {
+        long pause = (long)(Math.random() * (max - min)) + min;
+        try {
+            Thread.sleep(pause);
+        } catch (InterruptedException e) {
+            System.out.println("Interruption while receiver is working");
+        }
+    }
+
+    /**
+     * Shell for shutting down
+     * @param shutdownCommand the shutdown command
+     */
+    public void action(ShutdownCommand shutdownCommand) {
+    }
 }
