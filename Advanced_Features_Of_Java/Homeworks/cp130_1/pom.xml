@@ -10,7 +10,7 @@
   <name>cp130</name>
 
   <properties>
-    <student>LastFM</student>
+    <student>CrowleyJT</student>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
@@ -89,6 +89,14 @@
           </systemPropertyVariables>
         </configuration>
       </plugin>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <configuration>
+                <source>7</source>
+                <target>7</target>
+            </configuration>
+        </plugin>
 
     </plugins>
   </build>
