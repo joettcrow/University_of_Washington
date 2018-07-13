@@ -16,6 +16,7 @@ import java.io.*;
 public class MyAccountDao implements AccountDao {
     private static final Logger log =
             LoggerFactory.getLogger( MyAccountDao.class );
+    private static final String NULL_STR = "<null>";
     
     private static final String DIRECTORY = "target" + File.separator +"accounts" + File.separator;
 
@@ -44,7 +45,7 @@ public class MyAccountDao implements AccountDao {
             int len = dataInputStream.readInt();
 
             byte[] passHash = new byte[len];
-            dataInputStream.read(passHash);
+            dataInputStream.readFully(passHash);
             int bal = dataInputStream.readInt();
             String fullName = dataInputStream.readUTF();
             String phone = dataInputStream.readUTF();
@@ -54,13 +55,13 @@ public class MyAccountDao implements AccountDao {
             account.setName(name);
             account.setBalance(bal);
             account.setPasswordHash(passHash);
-            if (!fullName.equals("<null>")){
+            if (!fullName.equals(NULL_STR)){
                 account.setFullName(fullName);
             }
-            if (!phone.equals("<null>")) {
+            if (!phone.equals(NULL_STR)) {
                 account.setPhone(phone);
             }
-            if (!email.equals("<null>")) {
+            if (!email.equals(NULL_STR)) {
                 account.setEmail(email);
             }
 
@@ -68,7 +69,6 @@ public class MyAccountDao implements AccountDao {
 
         } catch (FileNotFoundException e) {
             log.info("Account does not exist", e);
-            return null;
         } catch (IOException e) {
             log.warn("File closed before operation could finish", e);
         } catch (AccountException e) {
@@ -83,7 +83,7 @@ public class MyAccountDao implements AccountDao {
             DataInputStream dataInputStream = new DataInputStream(
                     new FileInputStream(DIRECTORY + accountName + "/address"));
             String streetAddress = dataInputStream.readUTF();
-            if (streetAddress.equals("<null>")){
+            if (streetAddress.equals(NULL_STR)){
                 return null;
             }
             String city = dataInputStream.readUTF();
@@ -91,16 +91,16 @@ public class MyAccountDao implements AccountDao {
             String zipCode = dataInputStream.readUTF();
 
             MyAddress address = new MyAddress();
-            if (!streetAddress.equals("<null>")) {
+            if (!streetAddress.equals(NULL_STR)) {
                 address.setStreetAddress(streetAddress);
             }
-            if (!city.equals("<null>")) {
+            if (!city.equals(NULL_STR)) {
                 address.setCity(city);
             }
-            if (!state.equals("<null>")) {
+            if (!state.equals(NULL_STR)) {
                 address.setState(state);
             }
-            if (!zipCode.equals("<null>")) {
+            if (!zipCode.equals(NULL_STR)) {
                 address.setZipCode(zipCode);
             }
 
@@ -120,7 +120,7 @@ public class MyAccountDao implements AccountDao {
             DataInputStream dataInputStream = new DataInputStream(
                     new FileInputStream(DIRECTORY + accountName + "/creditCard"));
             String accountNumber = dataInputStream.readUTF();
-            if (accountNumber.equals("<null>")) {
+            if (accountNumber.equals(NULL_STR)) {
                 return null;
             }
             String expirationDate = dataInputStream.readUTF();
@@ -129,19 +129,19 @@ public class MyAccountDao implements AccountDao {
             String type = dataInputStream.readUTF();
 
             MyCreditCard creditCard = new MyCreditCard();
-            if (!accountNumber.equals("<null>")) {
+            if (!accountNumber.equals(NULL_STR)) {
                 creditCard.setAccountNumber(accountNumber);
             }
-            if (!expirationDate.equals("<null>")) {
+            if (!expirationDate.equals(NULL_STR)) {
                 creditCard.setExpirationDate(expirationDate);
             }
-            if (!holder.equals("<null>")) {
+            if (!holder.equals(NULL_STR)) {
                 creditCard.setHolder(holder);
             }
-            if (!issuer.equals("<null>")) {
+            if (!issuer.equals(NULL_STR)) {
                 creditCard.setIssuer(issuer);
             }
-            if (!type.equals("<null>")) {
+            if (!type.equals(NULL_STR)) {
                 creditCard.setType(type);
             }
             return creditCard;
@@ -177,19 +177,19 @@ public class MyAccountDao implements AccountDao {
             dataOutputStream.write(account.getPasswordHash());
             dataOutputStream.writeInt(account.getBalance());
             if (account.getFullName() == null){
-                dataOutputStream.writeUTF("<null>");
+                dataOutputStream.writeUTF(NULL_STR);
             }
             else {
                 dataOutputStream.writeUTF(account.getFullName());
             }
             if (account.getPhone() == null){
-                dataOutputStream.writeUTF("<null>");
+                dataOutputStream.writeUTF(NULL_STR);
             }
             else {
                 dataOutputStream.writeUTF(account.getPhone());
             }
             if (account.getEmail() == null){
-                dataOutputStream.writeUTF("<null>");
+                dataOutputStream.writeUTF(NULL_STR);
             }
             else {
                 dataOutputStream.writeUTF(account.getEmail());
@@ -209,10 +209,7 @@ public class MyAccountDao implements AccountDao {
             DataOutputStream dataOutputStream = new DataOutputStream(
                     new FileOutputStream(accountDirectory + "/address"));
             if (account.getAddress() == null){
-                dataOutputStream.writeUTF("<null>");
-//                dataOutputStream.writeUTF("<null>");
-//                dataOutputStream.writeUTF("<null>");
-//                dataOutputStream.writeUTF("<null>");
+                dataOutputStream.writeUTF(NULL_STR);
             }
             else {
                 dataOutputStream.writeUTF(account.getAddress().getStreetAddress());
@@ -234,11 +231,7 @@ public class MyAccountDao implements AccountDao {
             DataOutputStream dataOutputStream = new DataOutputStream(
                     new FileOutputStream(accountDirectory + "/creditCard"));
             if (account.getCreditCard() == null){
-                dataOutputStream.writeUTF("<null>");
-//                dataOutputStream.writeUTF("<null>");
-//                dataOutputStream.writeUTF("<null>");
-//                dataOutputStream.writeUTF("<null>");
-//                dataOutputStream.writeUTF("<null>");
+                dataOutputStream.writeUTF(NULL_STR);
             }
             else {
                 dataOutputStream.writeUTF(account.getCreditCard().getAccountNumber());
@@ -246,7 +239,7 @@ public class MyAccountDao implements AccountDao {
                 dataOutputStream.writeUTF(account.getCreditCard().getHolder());
                 dataOutputStream.writeUTF(account.getCreditCard().getIssuer());
                 if (account.getCreditCard().getType() == null){
-                    dataOutputStream.writeUTF("<null>");
+                    dataOutputStream.writeUTF(NULL_STR);
                 }
                 else {
                     dataOutputStream.writeUTF(account.getCreditCard().getType());

@@ -1,0 +1,1 @@
+{"id":"Abc123","holdings":[{"stock":{"stockSymbol":"AAPL","currentSharePrice":13000},"shares":10000},{"stock":{"stockSymbol":"MSFT","currentSharePrice":11000},"shares":1000},{"stock":{"stockSymbol":"F","currentSharePrice":5400},"shares":5000}]}
