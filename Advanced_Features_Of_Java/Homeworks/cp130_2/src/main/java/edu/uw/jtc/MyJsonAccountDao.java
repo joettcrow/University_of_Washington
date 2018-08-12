@@ -1,84 +1,55 @@
 package edu.uw.jtc;
 
-import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.DeserializationContext;
-import com.fasterxml.jackson.databind.JsonMappingException;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
+import com.fasterxml.jackson.databind.module.SimpleModule;
 import edu.uw.ext.framework.account.Account;
 import edu.uw.ext.framework.account.AccountException;
 import edu.uw.ext.framework.account.Address;
+import edu.uw.ext.framework.account.CreditCard;
 import edu.uw.ext.framework.dao.AccountDao;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-/**
+/**`
  * Json version of accountDao
  * @author jcrowley
  */
 public class MyJsonAccountDao implements AccountDao {
     private static final Logger log =
             LoggerFactory.getLogger( MyAccountDao.class );
-    private static final String NULL_STR = "<null>";
 
     private static final String DIRECTORY = "target" + File.separator +"accounts" + File.separator;
 
+    /**
+     * Getter for the account, reads in a json file and returns an account object
+     * @param accountName the account to read in
+     * @return the account
+     */
     public Account getAccount(String accountName) {
         File file = new File(DIRECTORY + accountName + File.separator + "account.json");
+        final SimpleModule module = new SimpleModule();
+        module.addAbstractTypeMapping(Account.class, MyAccount.class);
+        module.addAbstractTypeMapping(Address.class, MyAddress.class);
+        module.addAbstractTypeMapping(CreditCard.class, MyCreditCard.class);
         ObjectMapper mapper = new ObjectMapper();
+        mapper.registerModule(module);
         try {
-            MyAccount account = mapper.readValue(file, MyAccount.class);
-            return account;
+            return mapper.readValue(file, MyAccount.class);
         } catch (IOException e) {
-            log.warn("", e);
-
+            log.warn("Error reading from file", e);
         }
         return null;
     }
 
-//    public class AccountDeserializer extends StdDeserializer<Address> {
-//
-//        public AccountDeserializer() {
-//            this(null);
-//        }
-//
-//        public AccountDeserializer(Class<?> vc) {
-//            super(vc);
-//        }
-//
-//        @Override
-//        public Address deserialize(JsonParser jp, DeserializationContext ctxt)
-//                throws IOException, JsonProcessingException {
-//            JsonNode accountNode = jp.getCodec().readTree(jp);
-//            JsonNode addressNode = (JsonNode) jp.getCodec().readTree(jp).get("address");
-//            JsonNode creditNode = (JsonNode) jp.getCodec().readTree(jp).get("creditCard");
-//
-//            String name = accountNode.get("name").asText();
-//            byte[] passwordHash = accountNode.get("name").as();
-//            int balance;
-//            String fullName;
-//            String phone;
-//            String email;
-//
-//            String streetAddress = addressNode.get("streetAddress").asText();
-//            String city = addressNode.get("city").asText();
-//            String state = addressNode.get("state").asText();
-//            String zipCode = addressNode.get("zipCode").asText();
-//
-//
-////            return new MyAddress(id, itemName, new User(userId, null));
-//        }
-//    }
-
+    /**
+     * Writer for the account, writes out a json file representing the account's variables
+     * @param account the account to write
+     * @throws AccountException if things go wrong
+     */
     public void setAccount(Account account) throws AccountException {
-        String accountDirectory = DIRECTORY + account.getName();
         new File(DIRECTORY + account.getName()).mkdirs();
 
         File file = new File(DIRECTORY +
@@ -86,14 +57,12 @@ public class MyJsonAccountDao implements AccountDao {
                         File.separator +
                         "account.json");
         ObjectMapper mapper = new ObjectMapper();
-        mapper.enableDefaultTyping();
         try {
             mapper.writeValue(file,account);
         } catch (IOException e) {
             log.warn("", e);
 
         }
-//        mapper.writeValue(file, account);
     }
 
     /**
@@ -130,6 +99,10 @@ public class MyJsonAccountDao implements AccountDao {
         boolean result = deleteDirectory(file);
     }
 
+    /**
+     * Close function, it does things, probably
+     * @throws AccountException if the things don't get did
+     */
     public void close() throws AccountException {
 
     }

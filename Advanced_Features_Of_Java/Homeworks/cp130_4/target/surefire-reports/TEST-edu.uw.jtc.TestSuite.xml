@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="edu.uw.jtc.TestSuite" time="24.695" tests="24" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="gopherProxySet" value="false"/>
+    <property name="awt.toolkit" value="sun.lwawt.macosx.LWCToolkit"/>
+    <property name="java.specification.version" value="1.8"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="sun.cpu.isalist" value=""/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.class.path" value="/Users/jcrowley/University_of_Washington/Advanced_Features_Of_Java/Homeworks/cp130_4/target/test-classes:/Users/jcrowley/University_of_Washington/Advanced_Features_Of_Java/Homeworks/cp130_4/target/classes:/Users/jcrowley/.m2/repository/junit/junit/4.12/junit-4.12.jar:/Users/jcrowley/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/Users/jcrowley/.m2/repository/edu/uw/ext/cp130-framework/1.0/cp130-framework-1.0.jar:/Users/jcrowley/.m2/repository/org/springframework/spring-context/4.3.5.RELEASE/spring-context-4.3.5.RELEASE.jar:/Users/jcrowley/.m2/repository/org/springframework/spring-aop/4.3.5.RELEASE/spring-aop-4.3.5.RELEASE.jar:/Users/jcrowley/.m2/repository/org/springframework/spring-beans/4.3.5.RELEASE/spring-beans-4.3.5.RELEASE.jar:/Users/jcrowley/.m2/repository/org/springframework/spring-core/4.3.5.RELEASE/spring-core-4.3.5.RELEASE.jar:/Users/jcrowley/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/Users/jcrowley/.m2/repository/org/springframework/spring-expression/4.3.5.RELEASE/spring-expression-4.3.5.RELEASE.jar:/Users/jcrowley/.m2/repository/org/slf4j/slf4j-api/1.7.22/slf4j-api-1.7.22.jar:/Users/jcrowley/.m2/repository/edu/uw/ext/cp130-framework/1.0/cp130-framework-1.0-tests.jar:/Users/jcrowley/.m2/repository/org/slf4j/slf4j-jdk14/1.7.12/slf4j-jdk14-1.7.12.jar:/Users/jcrowley/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.7.5/jackson-databind-2.7.5.jar:/Users/jcrowley/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.7.0/jackson-annotations-2.7.0.jar:/Users/jcrowley/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.7.5/jackson-core-2.7.5.jar:"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
+    <property name="user.timezone" value=""/>
+    <property name="java.vm.specification.version" value="1.8"/>
+    <property name="os.name" value="Mac OS X"/>
+    <property name="user.country" value="US"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_102.jdk/Contents/Home/jre/lib"/>
+    <property name="sun.java.command" value="/Users/jcrowley/University_of_Washington/Advanced_Features_Of_Java/Homeworks/cp130_4/target/surefire/surefirebooter2936099925779894657.jar /Users/jcrowley/University_of_Washington/Advanced_Features_Of_Java/Homeworks/cp130_4/target/surefire 2018-08-08T20-34-03_032-jvmRun1 surefire2990408485298472445tmp surefire_0326892422633297204tmp"/>
+    <property name="surefire.test.class.path" value="/Users/jcrowley/University_of_Washington/Advanced_Features_Of_Java/Homeworks/cp130_4/target/test-classes:/Users/jcrowley/University_of_Washington/Advanced_Features_Of_Java/Homeworks/cp130_4/target/classes:/Users/jcrowley/.m2/repository/junit/junit/4.12/junit-4.12.jar:/Users/jcrowley/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/Users/jcrowley/.m2/repository/edu/uw/ext/cp130-framework/1.0/cp130-framework-1.0.jar:/Users/jcrowley/.m2/repository/org/springframework/spring-context/4.3.5.RELEASE/spring-context-4.3.5.RELEASE.jar:/Users/jcrowley/.m2/repository/org/springframework/spring-aop/4.3.5.RELEASE/spring-aop-4.3.5.RELEASE.jar:/Users/jcrowley/.m2/repository/org/springframework/spring-beans/4.3.5.RELEASE/spring-beans-4.3.5.RELEASE.jar:/Users/jcrowley/.m2/repository/org/springframework/spring-core/4.3.5.RELEASE/spring-core-4.3.5.RELEASE.jar:/Users/jcrowley/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/Users/jcrowley/.m2/repository/org/springframework/spring-expression/4.3.5.RELEASE/spring-expression-4.3.5.RELEASE.jar:/Users/jcrowley/.m2/repository/org/slf4j/slf4j-api/1.7.22/slf4j-api-1.7.22.jar:/Users/jcrowley/.m2/repository/edu/uw/ext/cp130-framework/1.0/cp130-framework-1.0-tests.jar:/Users/jcrowley/.m2/repository/org/slf4j/slf4j-jdk14/1.7.12/slf4j-jdk14-1.7.12.jar:/Users/jcrowley/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.7.5/jackson-databind-2.7.5.jar:/Users/jcrowley/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.7.0/jackson-annotations-2.7.0.jar:/Users/jcrowley/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.7.5/jackson-core-2.7.5.jar:"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="/Users/jcrowley"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.home" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_102.jdk/Contents/Home/jre"/>
+    <property name="basedir" value="/Users/jcrowley/University_of_Washington/Advanced_Features_Of_Java/Homeworks/cp130_4"/>
+    <property name="file.separator" value="/"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.CGraphicsEnvironment"/>
+    <property name="surefire.real.class.path" value="/Users/jcrowley/University_of_Washington/Advanced_Features_Of_Java/Homeworks/cp130_4/target/surefire/surefirebooter2936099925779894657.jar"/>
+    <property name="sun.boot.class.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_102.jdk/Contents/Home/jre/lib/resources.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_102.jdk/Contents/Home/jre/lib/rt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_102.jdk/Contents/Home/jre/lib/sunrsasign.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_102.jdk/Contents/Home/jre/lib/jsse.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_102.jdk/Contents/Home/jre/lib/jce.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_102.jdk/Contents/Home/jre/lib/charsets.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_102.jdk/Contents/Home/jre/lib/jfr.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_102.jdk/Contents/Home/jre/classes"/>
+    <property name="java.util.logging.config.file" value="src/main/resources/logging.properties"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="1.8.0_102-b14"/>
+    <property name="user.name" value="jcrowley"/>
+    <property name="path.separator" value=":"/>
+    <property name="os.version" value="10.13.3"/>
+    <property name="java.endorsed.dirs" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_102.jdk/Contents/Home/jre/lib/endorsed"/>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="localRepository" value="/Users/jcrowley/.m2/repository"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
+    <property name="java.io.tmpdir" value="/var/folders/h5/jnmwzm812j7c_39mnv167x3m0000gq/T/"/>
+    <property name="java.version" value="1.8.0_102"/>
+    <property name="user.dir" value="/Users/jcrowley/University_of_Washington/Advanced_Features_Of_Java/Homeworks/cp130_4"/>
+    <property name="os.arch" value="x86_64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="java.awt.printerjob" value="sun.lwawt.macosx.CPrinterJob"/>
+    <property name="sun.os.patch.level" value="unknown"/>
+    <property name="java.library.path" value="/Users/jcrowley/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:."/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.version" value="25.102-b14"/>
+    <property name="java.ext.dirs" value="/Users/jcrowley/Library/Java/Extensions:/Library/Java/JavaVirtualMachines/jdk1.8.0_102.jdk/Contents/Home/jre/lib/ext:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
+    <property name="java.class.version" value="52.0"/>
+  </properties>
+  <testcase name="testBadNameAccountCreation" classname="test.AccountTest" time="0.36"/>
+  <testcase name="testBadBalanceAccountCreation" classname="test.AccountTest" time="0.029"/>
+  <testcase name="testGoodAccountCreation" classname="test.AccountTest" time="0.032"/>
+  <testcase name="testSetAccountName" classname="test.AccountTest" time="0.041"/>
+  <testcase name="testReloadFile" classname="test.AccountManagerTest" time="0.461"/>
+  <testcase name="testCreateDuplicateUsername" classname="test.AccountManagerTest" time="0.129"/>
+  <testcase name="testClose" classname="test.AccountManagerTest" time="0.178"/>
+  <testcase name="testPersist" classname="test.AccountManagerTest" time="0.156"/>
+  <testcase name="testGetAccount" classname="test.AccountManagerTest" time="0.094"/>
+  <testcase name="testValidate" classname="test.AccountManagerTest" time="0.111"/>
+  <testcase name="testRegistration" classname="test.AccountManagerTest" time="0.099"/>
+  <testcase name="testDeleteAccount" classname="test.AccountManagerTest" time="0.103"/>
+  <testcase name="testMultipleGetAccount" classname="test.AccountManagerTest" time="0.163"/>
+  <testcase name="testClose" classname="test.DaoTest" time="0.115"/>
+  <testcase name="testReset" classname="test.DaoTest" time="0.058"/>
+  <testcase name="testDelete" classname="test.DaoTest" time="0.055"/>
+  <testcase name="testReload" classname="test.DaoTest" time="0.052"/>
+  <testcase name="testSetGet" classname="test.DaoTest" time="0.035"/>
+  <testcase name="testRequestQuote" classname="test.BrokerTest" time="0.036"/>
+  <testcase name="testClose" classname="test.BrokerTest" time="0.016"/>
+  <testcase name="testGetAccount" classname="test.BrokerTest" time="0.035"/>
+  <testcase name="testBrokerExchangeOpen" classname="test.BrokerTest" time="10.117"/>
+  <testcase name="testDeleteAccount" classname="test.BrokerTest" time="0.044"/>
+  <testcase name="testBrokerExchangeClosed" classname="test.BrokerTest" time="12.061"/>
+</testsuite>
