@@ -9,6 +9,7 @@ import edu.uw.ext.framework.exchange.StockExchange;
 
 public class MyExchangeNetworkProxyFactory implements NetworkExchangeProxyFactory {
     public StockExchange newProxy(String s, int i, String s1, int i1) {
-        return null;
+        MyExchangeProxy proxy = new MyExchangeProxy(s,i,s1,i1);
+        return proxy;
     }
 }

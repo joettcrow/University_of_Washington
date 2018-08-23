@@ -23,8 +23,13 @@ public class CommandHandler implements Runnable {
     private Socket socket;
     private StockExchange exchange;
 
-    public CommandHandler(Socket sock,
-                          StockExchange exchange){
+    /**
+     * Constructor
+     * @param sock socket to use
+     * @param exchange exchange to use
+     */
+    public CommandHandler(final Socket sock,
+                          final StockExchange exchange){
         this.exchange = exchange;
         this.socket = sock;
     }
@@ -43,12 +48,12 @@ public class CommandHandler implements Runnable {
     public void run() {
         try {
             InputStream inputStream = socket.getInputStream();
-            InputStreamReader reader = new InputStreamReader(inputStream);
+            InputStreamReader reader = new InputStreamReader(inputStream, ENCODING);
             BufferedReader bufferedReader = new BufferedReader(reader);
 
             OutputStream outputStream = socket.getOutputStream();
-            OutputStreamWriter outputStreamWriter = new OutputStreamWriter(outputStream);
-            PrintWriter printWriter = new PrintWriter(outputStreamWriter);
+            OutputStreamWriter outputStreamWriter = new OutputStreamWriter(outputStream, ENCODING);
+            PrintWriter printWriter = new PrintWriter(outputStreamWriter,true);
 
             String message = bufferedReader.readLine();
             if (message == null){
@@ -59,60 +64,74 @@ public class CommandHandler implements Runnable {
             String[] splitMessage = message.split(ELEMENT_DELIMITER);
             String command = splitMessage[CMD_ELEMENT];
 
+            log.info("Processing command :%s", command);
+
             switch (command){
                 case GET_STATE_CMD:
                     doGetState(printWriter);
+                    break;
                 case GET_TICKERS_CMD:
                     doGetTickers(printWriter);
+                    break;
                 case GET_QUOTE_CMD:
                     doGetQuote(printWriter,splitMessage);
+                    break;
                 case EXECUTE_TRADE_CMD:
                     doExecuteTrade(printWriter,splitMessage);
+                    break;
                 default:
                     log.info("IDK what you wanted the switch to find, but it didn't");
+                    break;
             }
 
         } catch (IOException e) {
-            log.warn("", e);
+            log.warn("IO exception thrown in switch section", e);
+        } finally {
+            try {
+                if (socket != null){
+                    socket.close();
+                }
+            } catch (IOException e) {
+                log.warn("Error when closing socket", e);
 
+            }
         }
-
-//        try input stream, reader, and buffered reader
-//        continue trying output stream, writer and print writer
-
-//        message is the readline, if message is null set message to empty string
-
-//        log the message, split it and run the command
-
-//        switch on cmd
-//        case get state, get tickers, get quote, execute trade, and default for weird things
-//        for the non weird cases do doGetCommand(printWrtr) and elements if needed
     }
 
-    private void doGetState(PrintWriter writer){
+    private void doGetState(final PrintWriter writer){
         String response = exchange.isOpen() ? OPEN_STATE : CLOSED_STATE;
         writer.print(response);
     }
 
-    private void doGetTickers(PrintWriter writer){
+    private void doGetTickers(final PrintWriter writer){
         String[] tickers = exchange.getTickers();
         String tickerString = String.join(ELEMENT_DELIMITER,tickers);
         writer.println(tickerString);
     }
 
-    private void doGetQuote(PrintWriter writer, String[] commandAndQuote){
+    private void doGetQuote(final PrintWriter writer,
+                            final String[] commandAndQuote){
+        String ticker = String.valueOf(commandAndQuote);
         StockQuote quote = exchange.getQuote(commandAndQuote[QUOTE_CMD_TICKER_ELEMENT]);
-        writer.println(quote.getPrice());
+        int price = (quote == null) ? INVALID_STOCK : quote.getPrice();
+        writer.println(price);
     }
 
-    private void doExecuteTrade(PrintWriter writer, String[] tradeInfo){
+    private void doExecuteTrade(final PrintWriter writer,
+                                final String[] tradeInfo){
         int price = 0;
+        String tradeType = tradeInfo[EXECUTE_TRADE_CMD_TYPE_ELEMENT];
+        String ticker = tradeInfo[EXECUTE_TRADE_CMD_TICKER_ELEMENT];
+        String shares = tradeInfo[EXECUTE_TRADE_CMD_SHARES_ELEMENT];
+        String accountId = tradeInfo[EXECUTE_TRADE_CMD_ACCOUNT_ELEMENT];
+        int qty = -1;
+        try {
+            qty = Integer.parseInt(shares);
+        } catch (NumberFormatException e){
+            log.info("idk, something about numbers");
+        }
 
         if (exchange.isOpen()){
-            String tradeType = tradeInfo[EXECUTE_TRADE_CMD_TYPE_ELEMENT];
-            String ticker = tradeInfo[EXECUTE_TRADE_CMD_TICKER_ELEMENT];
-            int shares = Integer.parseInt(tradeInfo[EXECUTE_TRADE_CMD_SHARES_ELEMENT]);
-            String accountId = tradeInfo[EXECUTE_TRADE_CMD_ACCOUNT_ELEMENT];
 
 
             Order order;
@@ -120,12 +139,12 @@ public class CommandHandler implements Runnable {
             if (tradeType.equals("MarketBuyOrder")){
                 order = new MarketBuyOrder(
                         accountId,
-                        shares,
+                        qty,
                         ticker);
             } else {
                 order = new MarketSellOrder(
                         accountId,
-                        shares,
+                        qty,
                         ticker);
             }
             price = exchange.executeTrade(order);

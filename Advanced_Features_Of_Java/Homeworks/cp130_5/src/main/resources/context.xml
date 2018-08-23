@@ -30,6 +30,6 @@
     <bean id="NetworkExchangeAdapterFactory" class="edu.uw.jtc.exchange.MyNetworkExchangeAdapterFactory"/>
 
     <!-- Bean implementing ...framework.exchange.NetworkExchangeProxyFactory -->
-    <bean id="NetworkExchangeProxyFactory" class="edu.uw.jtc.exchange.MyExchangeProxy"/>
+    <bean id="NetworkExchangeProxyFactory" class="edu.uw.jtc.exchange.MyExchangeNetworkProxyFactory"/>
 
 </beans>

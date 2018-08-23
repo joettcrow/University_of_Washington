@@ -7,7 +7,10 @@ import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.net.SocketException;
 import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author jcrowley
@@ -19,14 +22,14 @@ public class CommandListener implements Runnable{
     private Boolean listening = true;
     private ServerSocket serverSocket;
     private StockExchange stockExchange;
-    private ExecutorService executorService;
+    private ExecutorService executorService = Executors.newCachedThreadPool();
 
     //    Look at diagram for this guy  it has command port, boolean listening seversocket and
 // stockexchange  also it has an executor service
 
 
-    public CommandListener(int commandPort,
-                           StockExchange stockExchange){
+    public CommandListener(final int commandPort,
+                           final StockExchange stockExchange){
         this.commandPort = commandPort;
         this.stockExchange = stockExchange;
     }
@@ -45,37 +48,49 @@ public class CommandListener implements Runnable{
     public void run() {
         try {
             serverSocket = new ServerSocket(commandPort);
-        } catch (IOException e) {
-            log.warn("Unable to create new serverSocket on port", e);
+
             while (listening){
                 Socket socket = null;
                 try {
                     socket = serverSocket.accept();
-                    if (socket == null){
-                        continue;
+
+                } catch (SocketException e1) {
+                    if (serverSocket != null && !serverSocket.isClosed()){
+                        log.warn("Can't accept the connection");
                     }
-                } catch (IOException e1) {
                     log.warn("Unable to connect to socket", e1);
                 }
-                executorService.execute(socket);
-                this.terminate();
+                if (socket == null){
+                    continue;
+                }
+                executorService.execute(new CommandHandler(socket, stockExchange));
             }
-        }
-//        create server serverSocket on port, while loop for listening, and create a null serverSocket
-//        try serverSocket.accept and log it, catch a serverSocket exception,
-//        if sock (the listening) is null just continue
-//        after the try requestExecutor.exectue a new command Handler
-//
-//        eventually catch IO exception and finally terminate()
+        } catch (IOException e) {
+            log.warn("Unable to create new serverSocket on port", e);
 
+        } finally {
+            this.terminate();
+        }
     }
 
     public void terminate(){
         listening = false;
-//        try if server sock is not null and is not closed then server sock close
-//        set sever sock to null
-//        if the requestExecutor is not shutdown then shut it down and awaitTermination
-//        Catch the exceptions intellij compalins about
+        try {
+            if (serverSocket != null && !serverSocket.isClosed()){
+                serverSocket.close();
+            }
+            serverSocket = null;
+            if (!executorService.isShutdown()){
+                executorService.shutdown();
+                executorService.awaitTermination(4,TimeUnit.SECONDS);
+            }
+        } catch (IOException e) {
+            log.warn("IO Exception Thrown", e);
+
+        } catch (InterruptedException e) {
+            log.warn("Interrupted Exception Thrown", e);
+
+        }
     }
 
 }

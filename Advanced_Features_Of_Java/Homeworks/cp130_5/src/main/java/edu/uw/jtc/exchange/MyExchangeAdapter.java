@@ -23,23 +23,34 @@ public class MyExchangeAdapter implements ExchangeAdapter {
     private static final Logger log =
             LoggerFactory.getLogger( MyExchangeAdapter.class );
 
+    private int TTL = 4;
     private StockExchange stockExchange;
     private MulticastSocket eventSocket;
     private DatagramPacket datagramPacket;
     private CommandListener commandListener;
 
-    public MyExchangeAdapter(StockExchange exchange,
-                             String multicastIp,
-                             int multicastPort,
-                             int commandPort) throws UnknownHostException, SocketException{
+    /**
+     * Constructor for exchange adaptor
+     * @param exchange the exchange to add
+     * @param multicastIp the ip to multicast to
+     * @param multicastPort the port to multicast to
+     * @param commandPort the command port to use
+     * @throws UnknownHostException if the host is invalid
+     * @throws SocketException if something happens in the socket
+     */
+    public MyExchangeAdapter(final StockExchange exchange,
+                             final String multicastIp,
+                             final int multicastPort,
+                             final int commandPort)
+            throws UnknownHostException, SocketException{
         stockExchange = exchange;
         InetAddress multicastGroup = InetAddress.getByName(multicastIp);
         byte[] buf = {};
         datagramPacket = new DatagramPacket(buf,0,multicastGroup,multicastPort);
         try {
             eventSocket = new MulticastSocket();
-            eventSocket.setTimeToLive(4);
-            log.info("Opening Socket");
+            eventSocket.setTimeToLive(TTL);
+            log.info("Sending events via multicast to " + multicastIp + ":" + multicastPort);
         } catch (IOException e) {
             log.warn("Input and output are messed up, look into it", e);
         }
@@ -53,7 +64,7 @@ public class MyExchangeAdapter implements ExchangeAdapter {
      * The exchange has opened and prices are adjusting.
      * @param exchangeEvent the event
      */
-    public void exchangeOpened(ExchangeEvent exchangeEvent) {
+    public void exchangeOpened(final ExchangeEvent exchangeEvent) {
         try {
             sendMulticastEvent(OPEN_EVNT);
         } catch (IOException e) {
@@ -63,7 +74,7 @@ public class MyExchangeAdapter implements ExchangeAdapter {
 
     }
 
-    public void exchangeClosed(ExchangeEvent exchangeEvent) {
+    public void exchangeClosed(final ExchangeEvent exchangeEvent) {
         try {
             sendMulticastEvent(CLOSED_EVNT);
         } catch (Exception e) {
@@ -73,7 +84,7 @@ public class MyExchangeAdapter implements ExchangeAdapter {
 
     }
 
-    public void priceChanged(ExchangeEvent exchangeEvent) {
+    public void priceChanged(final ExchangeEvent exchangeEvent) {
         String symbol = exchangeEvent.getTicker();
         Integer price = exchangeEvent.getPrice();
         String priceChange = String.join(
@@ -137,15 +148,17 @@ public class MyExchangeAdapter implements ExchangeAdapter {
         stockExchange.removeExchangeListener(this);
         commandListener.terminate();
         eventSocket.close();
-//        also close another thing,this socket probs
-
     }
 
-    private synchronized void sendMulticastEvent(String msg) throws IOException{
-        final byte[] buf = msg.getBytes(ENCODING);
+    /**
+     * Helper method for sending multicasts
+     * @param message the message to send
+     * @throws IOException
+     */
+    private synchronized void sendMulticastEvent(String message) throws IOException{
+        final byte[] buf = message.getBytes(ENCODING);
         datagramPacket.setData(buf);
         datagramPacket.setLength(buf.length);
-
         eventSocket.send(datagramPacket);
     }
 }
