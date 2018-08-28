@@ -264,13 +264,13 @@ public class MyPrivateMessageCodec implements PrivateMessageCodec {
         byte[] encipheredSharedKey = privateMessageTriple.getEncipheredSharedKey();
         byte[] signature = privateMessageTriple.getSignature();
 
-        PrivateKey clientPrivateKey = this.getPrivateKeyFromKeystore(
+        PrivateKey privateKey = this.getPrivateKeyFromKeystore(
                 privateKeyStoreName,
                 privateKeyStorePassword,
                 privateKeyName,
                 privateKeyPassword);
 
-        byte[] symmetricKeyBytes = decipherData(clientPrivateKey,encipheredSharedKey);
+        byte[] symmetricKeyBytes = decipherData(privateKey,encipheredSharedKey);
         SecretKey originalSymettricKey = new SecretKeySpec(
                 symmetricKeyBytes,
                 0,
@@ -278,16 +278,16 @@ public class MyPrivateMessageCodec implements PrivateMessageCodec {
                 ENCRYPTION_ALGORITHM);
         byte[] decipheredText = decipherData(originalSymettricKey, ciphertext);
 
-        PublicKey brokerPublicKey = this.getPublicKeyFromKeystore(
+        PublicKey publicKeyFromKeystore = this.getPublicKeyFromKeystore(
                 certificateStoreName,
                 certificateStorePassword,
                 certificateName);
 
-        if (verifySignature(brokerPublicKey,signature)){
+        boolean signatureVerified = verifySignature(publicKeyFromKeystore,decipheredText,signature);
+        if (! signatureVerified){
             decipheredText = null;
             log.info("The text was not signed correctly");
         }
-
         return decipheredText;
     }
 
@@ -310,16 +310,19 @@ public class MyPrivateMessageCodec implements PrivateMessageCodec {
     /**
      * Private method to sign the data
      * @param signerKey key to sign with
-     * @param data data to be signed
+     * @param signature data to be signed
      * @return a signed data array
      */
-    private boolean verifySignature(final Key signerKey, final byte[] data){
+    private boolean verifySignature(
+            final PublicKey signerKey,
+            final byte[] data,
+            final byte[] signature){
         boolean valid = false;
         try {
             Signature verifier = Signature.getInstance(SIGNATURE_ENCODING);
-            verifier.initVerify((PublicKey) signerKey);
+            verifier.initVerify(signerKey);
             verifier.update(data);
-            valid = verifier.verify(data);
+            valid = verifier.verify(signature);
         } catch (NoSuchAlgorithmException e) {
             log.warn(SIGNATURE_ENCODING + " Does not exist...", e);
         } catch (SignatureException e) {
