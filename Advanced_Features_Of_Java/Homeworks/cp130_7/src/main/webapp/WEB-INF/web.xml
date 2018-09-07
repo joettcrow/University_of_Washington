@@ -1,7 +1,37 @@
-<!DOCTYPE web-app PUBLIC
- "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
- "http://java.sun.com/dtd/web-app_2_3.dtd" >
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
 
-<web-app>
-  <display-name>Archetype Created Web Application</display-name>
+  <display-name>Simple Servlet Application</display-name>
+  <servlet>
+    <servlet-name>stockQuote</servlet-name>
+    <servlet-class>edu.uw.jtc.web.MyStockQuoteServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>stockQuote</servlet-name>
+    <url-pattern>/welcome</url-pattern>
+  </servlet-mapping>
+
+  <!--<filter>-->
+    <!--<description> </description>-->
+    <!--<display-name>filter</display-name>-->
+    <!--<filter-name>filter</filter-name>-->
+    <!--<filter-class>web.MyFilter</filter-class>-->
+  <!--</filter>-->
+  <filter-mapping>
+    <filter-name>filter</filter-name>
+    <url-pattern>/welcome</url-pattern>
+  </filter-mapping>
+
+  <init-param>
+  <description>Some Flter</description>
+  <display-name></display-name>
+  <MyFilter-name>
+  </MyFilter-name>
+  <MyFilter-class></MyFilter-class>
+  </init-param>
 </web-app>

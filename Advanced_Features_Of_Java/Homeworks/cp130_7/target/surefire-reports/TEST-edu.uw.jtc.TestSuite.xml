@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="25" failures="0" name="edu.uw.jtc.TestSuite" time="26.96" errors="0" skipped="0">
+<testsuite tests="25" failures="0" name="edu.uw.jtc.TestSuite" time="26.25" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_102.jdk/Contents/Home/jre/lib"/>
@@ -45,7 +45,7 @@
     <property name="java.vm.specification.version" value="1.8"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.home" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_102.jdk/Contents/Home/jre"/>
-    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher clean test"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher package"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
     <property name="user.language" value="en"/>
     <property name="awt.toolkit" value="sun.lwawt.macosx.LWCToolkit"/>
@@ -61,29 +61,29 @@
     <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="test.AccountTest" name="testBadNameAccountCreation" time="0.538"/>
-  <testcase classname="test.AccountTest" name="testBadBalanceAccountCreation" time="0.142"/>
-  <testcase classname="test.AccountTest" name="testGoodAccountCreation" time="0.08"/>
-  <testcase classname="test.AccountTest" name="testSetAccountName" time="0.122"/>
-  <testcase classname="test.AccountManagerTest" name="testReloadFile" time="0.492"/>
-  <testcase classname="test.AccountManagerTest" name="testCreateDuplicateUsername" time="0.177"/>
-  <testcase classname="test.AccountManagerTest" name="testClose" time="0.079"/>
-  <testcase classname="test.AccountManagerTest" name="testPersist" time="0.124"/>
-  <testcase classname="test.AccountManagerTest" name="testGetAccount" time="0.12"/>
-  <testcase classname="test.AccountManagerTest" name="testValidate" time="0.099"/>
-  <testcase classname="test.AccountManagerTest" name="testRegistration" time="0.087"/>
-  <testcase classname="test.AccountManagerTest" name="testDeleteAccount" time="0.083"/>
-  <testcase classname="test.AccountManagerTest" name="testMultipleGetAccount" time="0.082"/>
-  <testcase classname="test.DaoTest" name="testClose" time="0.13"/>
-  <testcase classname="test.DaoTest" name="testReset" time="0.123"/>
-  <testcase classname="test.DaoTest" name="testDelete" time="0.098"/>
-  <testcase classname="test.DaoTest" name="testReload" time="0.093"/>
-  <testcase classname="test.DaoTest" name="testSetGet" time="0.147"/>
-  <testcase classname="test.BrokerTest" name="testRequestQuote" time="0.218"/>
-  <testcase classname="test.BrokerTest" name="testClose" time="0.027"/>
-  <testcase classname="test.BrokerTest" name="testGetAccount" time="0.18"/>
-  <testcase classname="test.BrokerTest" name="testBrokerExchangeOpen" time="10.118"/>
-  <testcase classname="test.BrokerTest" name="testDeleteAccount" time="0.058"/>
-  <testcase classname="test.BrokerTest" name="testBrokerExchangeClosed" time="12.133"/>
-  <testcase classname="test.PrivateMessageCodecTest" name="codecTest" time="1.41"/>
+  <testcase classname="test.AccountTest" name="testBadNameAccountCreation" time="0.673"/>
+  <testcase classname="test.AccountTest" name="testBadBalanceAccountCreation" time="0.129"/>
+  <testcase classname="test.AccountTest" name="testGoodAccountCreation" time="0.181"/>
+  <testcase classname="test.AccountTest" name="testSetAccountName" time="0.211"/>
+  <testcase classname="test.AccountManagerTest" name="testReloadFile" time="0.858"/>
+  <testcase classname="test.AccountManagerTest" name="testCreateDuplicateUsername" time="0.137"/>
+  <testcase classname="test.AccountManagerTest" name="testClose" time="0.073"/>
+  <testcase classname="test.AccountManagerTest" name="testPersist" time="0.083"/>
+  <testcase classname="test.AccountManagerTest" name="testGetAccount" time="0.061"/>
+  <testcase classname="test.AccountManagerTest" name="testValidate" time="0.064"/>
+  <testcase classname="test.AccountManagerTest" name="testRegistration" time="0.145"/>
+  <testcase classname="test.AccountManagerTest" name="testDeleteAccount" time="0.143"/>
+  <testcase classname="test.AccountManagerTest" name="testMultipleGetAccount" time="0.063"/>
+  <testcase classname="test.DaoTest" name="testClose" time="0.149"/>
+  <testcase classname="test.DaoTest" name="testReset" time="0.059"/>
+  <testcase classname="test.DaoTest" name="testDelete" time="0.106"/>
+  <testcase classname="test.DaoTest" name="testReload" time="0.082"/>
+  <testcase classname="test.DaoTest" name="testSetGet" time="0.151"/>
+  <testcase classname="test.BrokerTest" name="testRequestQuote" time="0.175"/>
+  <testcase classname="test.BrokerTest" name="testClose" time="0.049"/>
+  <testcase classname="test.BrokerTest" name="testGetAccount" time="0.119"/>
+  <testcase classname="test.BrokerTest" name="testBrokerExchangeOpen" time="10.058"/>
+  <testcase classname="test.BrokerTest" name="testDeleteAccount" time="0.038"/>
+  <testcase classname="test.BrokerTest" name="testBrokerExchangeClosed" time="12.134"/>
+  <testcase classname="test.PrivateMessageCodecTest" name="codecTest" time="0.309"/>
 </testsuite>

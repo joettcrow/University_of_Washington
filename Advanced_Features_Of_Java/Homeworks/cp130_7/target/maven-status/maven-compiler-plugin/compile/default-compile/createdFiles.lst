@@ -24,3 +24,4 @@ edu/uw/jtc/broker/MyBrokerFactory.class
 edu/uw/jtc/exchange/MyProtocolConstants.class
 edu/uw/jtc/MyDaoFactory.class
 edu/uw/jtc/MyJsonAccountDao.class
+edu/uw/jtc/web/MyStockQuoteServlet.class
