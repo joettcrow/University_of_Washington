@@ -16,22 +16,22 @@
     <url-pattern>/welcome</url-pattern>
   </servlet-mapping>
 
-  <filter>
-    <description> </description>
-    <display-name>filter</display-name>
-    <filter-name>filter</filter-name>
-    <filter-class>edu.uw.jtc.web.StockQuoteServletFilter</filter-class>
-  </filter>
+  <!--<filter>-->
+    <!--<description> </description>-->
+    <!--<display-name>filter</display-name>-->
+    <!--<filter-name>filter</filter-name>-->
+    <!--<filter-class>web.MyFilter</filter-class>-->
+  <!--</filter>-->
   <filter-mapping>
     <filter-name>filter</filter-name>
     <url-pattern>/welcome</url-pattern>
   </filter-mapping>
 
-  <!--<init-param>-->
-  <!--<description>Some Flter</description>-->
-  <!--<display-name></display-name>-->
-  <!--<MyFilter-name>-->
-  <!--</MyFilter-name>-->
-  <!--<MyFilter-class></MyFilter-class>-->
-  <!--</init-param>-->
+  <init-param>
+  <description>Some Flter</description>
+  <display-name></display-name>
+  <MyFilter-name>
+  </MyFilter-name>
+  <MyFilter-class></MyFilter-class>
+  </init-param>
 </web-app>
