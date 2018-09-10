@@ -1,7 +1,6 @@
 package app;
 
 import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -15,21 +14,20 @@ import java.net.URL;
 
 public class QuoteApp extends HttpServlet {
 
-    private static void exec(final String symbol, final String format) {
+    private static void exec(final String tickerSymbol, final String format) {
         HttpURLConnection conn = null;
-        String baseUrl = "http://localhost:8080/StockQuote";
+        String baseUrl = "http://localhost:8080/StockQuote/welcome";
         try {
             String urlStr = String.format(
                     "%s?tickerSymbol=%s&format=%s",
                     baseUrl,
-                    symbol,
-                    format);
-            //System.out.println(urlStr);
+                    tickerSymbol,
+                    format
+            );
             URL url = new URL(urlStr);
             conn = (HttpURLConnection)url.openConnection();
             conn.setRequestMethod("GET");
 
-            //System.out.printf("Content-Type: %s%n", conn.getContentType());
             InputStream in = conn.getInputStream();
             Reader rdr = new InputStreamReader(in);
             char buf[] = new char[1024];
@@ -47,24 +45,24 @@ public class QuoteApp extends HttpServlet {
      * @param args
      * @throws IOException
      */
-    public static void main(String[] args) {
-        String courtesyType = "salutation";
+    public static void main(String[] args)  {
+        String stockQuote = "bac";
 
         System.out.println("JSON:");
-        exec(courtesyType, "json");
+        exec(stockQuote, "json");
         System.out.println();
 
         System.out.println();
         System.out.println("plain:");
-        exec(courtesyType, "plain");
+        exec(stockQuote, "plain");
 
         System.out.println();
         System.out.println("HTML:");
-        exec(courtesyType, "html");
+        exec(stockQuote, "html");
 
         System.out.println();
         System.out.println("XML:");
-        exec(courtesyType, "xml");
+        exec(stockQuote, "xml");
 
         System.out.println();
         System.out.println();

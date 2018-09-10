@@ -6,7 +6,7 @@
   <groupId>edu.uw.jtc</groupId>
   <artifactId>cp130_7</artifactId>
   <packaging>war</packaging>
-  <version>1.0</version>
+  <version>7.0</version>
   <name>cp130_7</name>
 
   <properties>

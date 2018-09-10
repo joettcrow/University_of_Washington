@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="edu.uw.jtc.TestSuite" time="26.3" tests="25" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="edu.uw.jtc.TestSuite" time="28.125" tests="25" errors="0" skipped="0" failures="0">
   <properties>
     <property name="gopherProxySet" value="false"/>
     <property name="awt.toolkit" value="sun.lwawt.macosx.LWCToolkit"/>
@@ -17,7 +17,7 @@
     <property name="user.country" value="US"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_102.jdk/Contents/Home/jre/lib"/>
-    <property name="sun.java.command" value="/Users/jcrowley/University_of_Washington/Advanced_Features_Of_Java/Homeworks/cp130_6/target/surefire/surefirebooter3806177950489600280.jar /Users/jcrowley/University_of_Washington/Advanced_Features_Of_Java/Homeworks/cp130_6/target/surefire 2018-08-26T10-34-18_832-jvmRun1 surefire5383915594485611331tmp surefire_07004754362437957859tmp"/>
+    <property name="sun.java.command" value="/Users/jcrowley/University_of_Washington/Advanced_Features_Of_Java/Homeworks/cp130_6/target/surefire/surefirebooter5227990551733777582.jar /Users/jcrowley/University_of_Washington/Advanced_Features_Of_Java/Homeworks/cp130_6/target/surefire 2018-08-29T18-35-21_741-jvmRun1 surefire4446707001361033629tmp surefire_08956641996643146688tmp"/>
     <property name="surefire.test.class.path" value="/Users/jcrowley/University_of_Washington/Advanced_Features_Of_Java/Homeworks/cp130_6/target/test-classes:/Users/jcrowley/University_of_Washington/Advanced_Features_Of_Java/Homeworks/cp130_6/target/classes:/Users/jcrowley/.m2/repository/junit/junit/4.12/junit-4.12.jar:/Users/jcrowley/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/Users/jcrowley/.m2/repository/edu/uw/ext/cp130-framework/1.0/cp130-framework-1.0.jar:/Users/jcrowley/.m2/repository/org/springframework/spring-context/4.3.5.RELEASE/spring-context-4.3.5.RELEASE.jar:/Users/jcrowley/.m2/repository/org/springframework/spring-aop/4.3.5.RELEASE/spring-aop-4.3.5.RELEASE.jar:/Users/jcrowley/.m2/repository/org/springframework/spring-beans/4.3.5.RELEASE/spring-beans-4.3.5.RELEASE.jar:/Users/jcrowley/.m2/repository/org/springframework/spring-core/4.3.5.RELEASE/spring-core-4.3.5.RELEASE.jar:/Users/jcrowley/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/Users/jcrowley/.m2/repository/org/springframework/spring-expression/4.3.5.RELEASE/spring-expression-4.3.5.RELEASE.jar:/Users/jcrowley/.m2/repository/org/slf4j/slf4j-api/1.7.22/slf4j-api-1.7.22.jar:/Users/jcrowley/.m2/repository/edu/uw/ext/cp130-framework/1.0/cp130-framework-1.0-tests.jar:/Users/jcrowley/.m2/repository/org/slf4j/slf4j-jdk14/1.7.12/slf4j-jdk14-1.7.12.jar:/Users/jcrowley/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.7.5/jackson-databind-2.7.5.jar:/Users/jcrowley/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.7.0/jackson-annotations-2.7.0.jar:/Users/jcrowley/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.7.5/jackson-core-2.7.5.jar:"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="/Users/jcrowley"/>
@@ -30,7 +30,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.awt.graphicsenv" value="sun.awt.CGraphicsEnvironment"/>
-    <property name="surefire.real.class.path" value="/Users/jcrowley/University_of_Washington/Advanced_Features_Of_Java/Homeworks/cp130_6/target/surefire/surefirebooter3806177950489600280.jar"/>
+    <property name="surefire.real.class.path" value="/Users/jcrowley/University_of_Washington/Advanced_Features_Of_Java/Homeworks/cp130_6/target/surefire/surefirebooter5227990551733777582.jar"/>
     <property name="sun.boot.class.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_102.jdk/Contents/Home/jre/lib/resources.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_102.jdk/Contents/Home/jre/lib/rt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_102.jdk/Contents/Home/jre/lib/sunrsasign.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_102.jdk/Contents/Home/jre/lib/jsse.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_102.jdk/Contents/Home/jre/lib/jce.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_102.jdk/Contents/Home/jre/lib/charsets.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_102.jdk/Contents/Home/jre/lib/jfr.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_102.jdk/Contents/Home/jre/classes"/>
     <property name="java.util.logging.config.file" value="src/main/resources/logging.properties"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
@@ -59,29 +59,29 @@
     <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
     <property name="java.class.version" value="52.0"/>
   </properties>
-  <testcase name="testBadNameAccountCreation" classname="test.AccountTest" time="0.495"/>
-  <testcase name="testBadBalanceAccountCreation" classname="test.AccountTest" time="0.059"/>
-  <testcase name="testGoodAccountCreation" classname="test.AccountTest" time="0.057"/>
-  <testcase name="testSetAccountName" classname="test.AccountTest" time="0.079"/>
-  <testcase name="testReloadFile" classname="test.AccountManagerTest" time="0.767"/>
-  <testcase name="testCreateDuplicateUsername" classname="test.AccountManagerTest" time="0.162"/>
-  <testcase name="testClose" classname="test.AccountManagerTest" time="0.066"/>
-  <testcase name="testPersist" classname="test.AccountManagerTest" time="0.242"/>
-  <testcase name="testGetAccount" classname="test.AccountManagerTest" time="0.177"/>
-  <testcase name="testValidate" classname="test.AccountManagerTest" time="0.14"/>
-  <testcase name="testRegistration" classname="test.AccountManagerTest" time="0.161"/>
-  <testcase name="testDeleteAccount" classname="test.AccountManagerTest" time="0.262"/>
-  <testcase name="testMultipleGetAccount" classname="test.AccountManagerTest" time="0.119"/>
-  <testcase name="testClose" classname="test.DaoTest" time="0.1"/>
-  <testcase name="testReset" classname="test.DaoTest" time="0.077"/>
-  <testcase name="testDelete" classname="test.DaoTest" time="0.117"/>
-  <testcase name="testReload" classname="test.DaoTest" time="0.102"/>
-  <testcase name="testSetGet" classname="test.DaoTest" time="0.143"/>
-  <testcase name="testRequestQuote" classname="test.BrokerTest" time="0.117"/>
-  <testcase name="testClose" classname="test.BrokerTest" time="0.014"/>
-  <testcase name="testGetAccount" classname="test.BrokerTest" time="0.029"/>
-  <testcase name="testBrokerExchangeOpen" classname="test.BrokerTest" time="10.14"/>
-  <testcase name="testDeleteAccount" classname="test.BrokerTest" time="0.096"/>
-  <testcase name="testBrokerExchangeClosed" classname="test.BrokerTest" time="12.122"/>
-  <testcase name="codecTest" classname="test.PrivateMessageCodecTest" time="0.319"/>
+  <testcase name="testBadNameAccountCreation" classname="test.AccountTest" time="1.726"/>
+  <testcase name="testBadBalanceAccountCreation" classname="test.AccountTest" time="0.175"/>
+  <testcase name="testGoodAccountCreation" classname="test.AccountTest" time="0.236"/>
+  <testcase name="testSetAccountName" classname="test.AccountTest" time="0.201"/>
+  <testcase name="testReloadFile" classname="test.AccountManagerTest" time="1.623"/>
+  <testcase name="testCreateDuplicateUsername" classname="test.AccountManagerTest" time="0.105"/>
+  <testcase name="testClose" classname="test.AccountManagerTest" time="0.125"/>
+  <testcase name="testPersist" classname="test.AccountManagerTest" time="0.113"/>
+  <testcase name="testGetAccount" classname="test.AccountManagerTest" time="0.105"/>
+  <testcase name="testValidate" classname="test.AccountManagerTest" time="0.065"/>
+  <testcase name="testRegistration" classname="test.AccountManagerTest" time="0.087"/>
+  <testcase name="testDeleteAccount" classname="test.AccountManagerTest" time="0.088"/>
+  <testcase name="testMultipleGetAccount" classname="test.AccountManagerTest" time="0.063"/>
+  <testcase name="testClose" classname="test.DaoTest" time="0.099"/>
+  <testcase name="testReset" classname="test.DaoTest" time="0.054"/>
+  <testcase name="testDelete" classname="test.DaoTest" time="0.106"/>
+  <testcase name="testReload" classname="test.DaoTest" time="0.08"/>
+  <testcase name="testSetGet" classname="test.DaoTest" time="0.062"/>
+  <testcase name="testRequestQuote" classname="test.BrokerTest" time="0.068"/>
+  <testcase name="testClose" classname="test.BrokerTest" time="0.062"/>
+  <testcase name="testGetAccount" classname="test.BrokerTest" time="0.037"/>
+  <testcase name="testBrokerExchangeOpen" classname="test.BrokerTest" time="10.116"/>
+  <testcase name="testDeleteAccount" classname="test.BrokerTest" time="0.041"/>
+  <testcase name="testBrokerExchangeClosed" classname="test.BrokerTest" time="12.064"/>
+  <testcase name="codecTest" classname="test.PrivateMessageCodecTest" time="0.266"/>
 </testsuite>

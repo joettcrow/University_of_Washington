@@ -9,14 +9,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
-import java.net.HttpURLConnection;
-import java.net.URL;
 
 /**
  * @author jcrowley
  */
 
-public class MyStockQuoteServlet {
+public class MyStockQuoteServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private ServletContext ctx;
 
@@ -46,21 +44,22 @@ public class MyStockQuoteServlet {
         serviceRequest(request, response);
     }
 
+
     void serviceRequest(
-            HttpServletRequest request, HttpServletResponse response
+            HttpServletRequest request,
+            HttpServletResponse response
     ) throws ServletException, IOException {
         String ticker = request.getParameter("stockQuote");
         String format = request.getParameter("format");
 
-        AlphaVantageQuote quote = null;
+        AlphaVantageQuote newQuote = null;
         try {
-            quote = AlphaVantageQuote.getQuote(ticker);
+            newQuote = AlphaVantageQuote.getQuote(ticker);
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-        String symbol = quote.getSymbol();
-        int price = quote.getPrice();
+        String symbol = newQuote.getSymbol();
+        int price = newQuote.getPrice();
 
         StringBuilder xmlBuilder = new StringBuilder();
         xmlBuilder.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");

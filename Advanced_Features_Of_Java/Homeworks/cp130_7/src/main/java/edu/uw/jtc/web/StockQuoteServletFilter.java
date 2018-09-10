@@ -37,7 +37,7 @@ public class StockQuoteServletFilter implements Filter {
     ) throws IOException, ServletException {
         final CharResponseWrapper responseWrapper = new CharResponseWrapper(
                 (HttpServletResponse) servletResponse);
-        filterChain.doFilter(servletRequest, (ServletResponse) responseWrapper);
+        filterChain.doFilter(servletRequest, responseWrapper);
 
         ctx.log("initializing  : " + responseWrapper.toString());
 
@@ -63,13 +63,13 @@ public class StockQuoteServletFilter implements Filter {
         ctx.log("We should have a node list?");
         builder.append(responseWrapper.toString());
 
-        if (!format.equals("xml")) {
+//        if (!format.equals("xml")) {
             switch (format) {
                 case "plain":
                     servletResponse.setContentType("text/plain");
                     builder.delete(0, responseWrapper.toString().length());
-                    builder.append(String.format(
-                            "Stock %s is currently selling for: %s", symbol, price));
+                    builder.append(
+                            String.format("Stock %s is currently selling for: %s", symbol, price));
                     break;
                 case "json":
                     builder.delete(0, responseWrapper.toString().length());
@@ -86,7 +86,7 @@ public class StockQuoteServletFilter implements Filter {
                 default:
                     servletResponse.setContentType("text/xml");
             }
-        }
+//        }
         output.append(builder.toString());
         String respStr = output.toString();
         servletResponse.setContentLength(respStr.length());

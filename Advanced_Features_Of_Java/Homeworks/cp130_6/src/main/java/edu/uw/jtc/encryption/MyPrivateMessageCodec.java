@@ -169,6 +169,7 @@ public class MyPrivateMessageCodec implements PrivateMessageCodec {
             FileInputStream fIn = new FileInputStream(storeFile);
             KeyStore keystore = KeyStore.getInstance(storeType);
             keystore.load(fIn, storePassword);
+            fIn.close();
             return keystore;
     }
 
